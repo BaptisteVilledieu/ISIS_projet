@@ -14,6 +14,7 @@ public class Commercial extends Employes {
     //CONSTRUCTEUR 
     public Commercial(String n, String p, int mat) {
         super(n, p, mat);
+        System.out.println("Comm");
     }
     
     
