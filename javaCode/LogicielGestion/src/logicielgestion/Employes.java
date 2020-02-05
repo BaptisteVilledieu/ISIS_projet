@@ -27,7 +27,7 @@ public class Employes {
     //TOSTRING 
     @Override
     public String toString() {
-        return "Employé : " + nom + ", " + prenom + ", " + matricule ;
+        return "Employe : " + nom + ", " + prenom + ", " + matricule ;
     }
     
     //GETTERS 
