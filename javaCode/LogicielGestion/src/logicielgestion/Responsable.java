@@ -5,16 +5,25 @@
  */
 package logicielgestion;
 
+import java.util.TreeSet;
+
 /**
  *
  * @author cecil
  */
 public class Responsable extends Employes {
-    
+    private final TreeSet<EmployeDeBase> lesEmployesDeBase;
     //CONSTRUCTEUR 
-    public Responsable(String n, String p, int mat) {
-        super(n, p, mat);
+    public Responsable(String n, String p, int mat,float indice) {
+        super(n, p, mat,indice);
+        this.lesEmployesDeBase = new TreeSet<>();
     }
     
-    
+    @Override
+    public String toString(){
+        return super.toString()+ lesEmployesDeBase;
+    }
+    public float calculSalaire(){
+        return this.indiceSalarial*12;
+    }
 }

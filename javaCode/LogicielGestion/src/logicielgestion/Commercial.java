@@ -10,11 +10,21 @@ package logicielgestion;
  * @author cecil
  */
 public class Commercial extends Employes {
-   
+    //volume mensuel
+    private final int volume;
     //CONSTRUCTEUR 
-    public Commercial(String n, String p, int mat) {
-        super(n, p, mat);
+    public Commercial(String n, String p, int mat,float indice, int v) {
+        super(n, p, mat,indice);
+        this.volume=v;
     }
     
+    @Override
+    public String toString(){
+        return super.toString()+", "+ volume;
+    }
+    
+    public float calculSalaire(){
+         return this.indiceSalarial*12+volume/10;    
+    }
     
 }
