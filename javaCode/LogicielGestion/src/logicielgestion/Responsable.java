@@ -23,7 +23,7 @@ public class Responsable extends Employes {
     public String toString(){
         return super.toString()+ lesEmployesDeBase;
     }
-    public String SalaireResponsable(){
-        
+    public float calculSalaire(){
+        return this.indiceSalarial*12;
     }
 }

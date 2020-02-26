@@ -23,8 +23,8 @@ public class Commercial extends Employes {
         return super.toString()+", "+ volume;
     }
     
-    public float Salaire(){
-              
+    public float calculSalaire(){
+         return this.indiceSalarial*12+volume/10;    
     }
     
 }

@@ -19,4 +19,7 @@ public class EmployeDeBase extends Employes {
     public String toString(){
         return super.toString();
     }  
+    public float calculSalaire(){
+         return this.indiceSalarial*12;    
+    }
 }
