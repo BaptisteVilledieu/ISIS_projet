@@ -14,20 +14,20 @@ public class Employes {
     private String nom;
     private String prenom;
     private int /* ou créer une classe matricule?? */ matricule;
-    private int salaireFixe;
-    private int indiceSalarial; 
+    private final int indiceSalarial; 
     
     //CONSTRUCTEUR 
-    public Employes(String n, String p, int mat) {
+    public Employes(String n, String p, int mat, int indice) {
         this.nom = n;
         this.prenom = p;
         this.matricule = mat; 
+        this.indiceSalarial=indice;
     }
     
     //TOSTRING 
     @Override
     public String toString() {
-        return "Employe : " + nom + ", " + prenom + ", " + matricule ;
+        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", " + matricule+", "+indiceSalarial*SalaireFixe() ;
     }
     
     //GETTERS 
@@ -54,6 +54,10 @@ public class Employes {
 
     public void setMatricule(int matricule) {
         this.matricule = matricule;
+    }
+
+    public int getIndiceSalarial() {
+        return indiceSalarial;
     }
     
     

@@ -12,8 +12,11 @@ package logicielgestion;
 public class EmployeDeBase extends Employes {
     
     //CONSTRUCTEUR 
-    public EmployeDeBase(String n, String p, int mat) {
-        super(n, p, mat);
+    public EmployeDeBase(String n, String p, int mat,int indice) {
+        super(n, p, mat,indice);
     }
-    
+    @Override
+    public String toString(){
+        return super.toString();
+    }  
 }
