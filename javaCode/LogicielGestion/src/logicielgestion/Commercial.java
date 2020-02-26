@@ -13,7 +13,7 @@ public class Commercial extends Employes {
     //volume mensuel
     private final int volume;
     //CONSTRUCTEUR 
-    public Commercial(String n, String p, int mat,int indice, int v) {
+    public Commercial(String n, String p, int mat,float indice, int v) {
         super(n, p, mat,indice);
         this.volume=v;
     }
@@ -21,6 +21,10 @@ public class Commercial extends Employes {
     @Override
     public String toString(){
         return super.toString()+", "+ volume;
+    }
+    
+    public float Salaire(){
+              
     }
     
 }
