@@ -15,7 +15,7 @@ public class LogicielGestion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Création des personnages de l'entreprise 
+        //Création de tous les employés de l'entreprise 
         Employes r1 = new Responsable("Biffi", "Emma", 1, 150);
         Employes r2 = new Responsable("Lacoste", "Thomas", 2, 150);
         Employes c1 = new Commercial("Cazenave", "Sara", 3, 100, 10);

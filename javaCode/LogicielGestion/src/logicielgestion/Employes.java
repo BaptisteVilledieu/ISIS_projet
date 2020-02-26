@@ -27,7 +27,7 @@ public class Employes {
     //TOSTRING 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", " + matricule+", "+indiceSalarial*SalaireFixe() ;
+        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", " + matricule + ", " + indiceSalarial*SalaireFixe() ;
     }
     
     //GETTERS 

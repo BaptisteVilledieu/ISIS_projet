@@ -12,7 +12,9 @@ import java.util.TreeSet;
  * @author cecil
  */
 public class Responsable extends Employes {
+    //Nouvel attribut
     private final TreeSet<EmployeDeBase> lesEmployesDeBase;
+    
     //CONSTRUCTEUR 
     public Responsable(String n, String p, int mat,int indice) {
         super(n, p, mat,indice);
