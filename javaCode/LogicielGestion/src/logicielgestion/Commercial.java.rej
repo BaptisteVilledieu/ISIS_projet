@@ -1,0 +1,12 @@
+diff a/javaCode/LogicielGestion/src/logicielgestion/Commercial.java b/javaCode/LogicielGestion/src/logicielgestion/Commercial.java	(rejected hunks)
+@@ -23,8 +23,8 @@
+         return super.toString()+", "+ volume;
+     }
+     
+-    public float Salaire(){
+-              
++    public float calculSalaire(){
++         return this.indiceSalarial*12+volume/10;    
+     }
+     
+ }

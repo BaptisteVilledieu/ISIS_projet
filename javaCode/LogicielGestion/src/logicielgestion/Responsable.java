@@ -12,9 +12,16 @@ import java.util.TreeSet;
  * @author cecil
  */
 public class Responsable extends Employes {
+    //Nouvel attribut
     private final TreeSet<EmployeDeBase> lesEmployesDeBase;
+<<<<<<< HEAD
     //CONSTRUCTEU 
     public Responsable(String n, String p, int mat,float indice) {
+=======
+    
+    //CONSTRUCTEUR 
+    public Responsable(String n, String p, int mat,int indice) {
+>>>>>>> 4cbe96816a5fb45f5b063e6af2c5ea2ff00fbe5f
         super(n, p, mat,indice);
         this.lesEmployesDeBase = new TreeSet<>();
     }
@@ -23,8 +30,7 @@ public class Responsable extends Employes {
     public String toString(){
         return super.toString()+ lesEmployesDeBase;
     }
-    @Override
-    public float calculSalaire(){
-        return this.indiceSalarial*12;
+    public String SalaireResponsable(){
+        
     }
 }

@@ -9,27 +9,29 @@ package logicielgestion;
  *
  * @author cecil
  */
-public abstract class Employes {
+public class Employes {
     //ATTRIBUTS
     private String nom;
     private String prenom;
-    private int  matricule;
-    protected  float indiceSalarial; 
+    private int /* ou créer une classe matricule?? */ matricule;
+    private final int indiceSalarial; 
     
     //CONSTRUCTEUR 
-    public Employes(String n, String p, int mat, float indice) {
+    public Employes(String n, String p, int mat, int indice) {
         this.nom = n;
         this.prenom = p;
         this.matricule = mat; 
         this.indiceSalarial=indice;
     }
-    public abstract float calculSalaire();
-      
     
     //TOSTRING 
     @Override
     public String toString() {
+<<<<<<< HEAD
         return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", " + matricule+", "+indiceSalarial ;
+=======
+        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", " + matricule + ", " + indiceSalarial*SalaireFixe() ;
+>>>>>>> 4cbe96816a5fb45f5b063e6af2c5ea2ff00fbe5f
     }
     
     //GETTERS 
@@ -58,6 +60,9 @@ public abstract class Employes {
         this.matricule = matricule;
     }
 
- 
+    public int getIndiceSalarial() {
+        return indiceSalarial;
+    }
+    
     
 }
