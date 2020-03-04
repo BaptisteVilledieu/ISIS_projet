@@ -27,6 +27,7 @@ public class LogicielGestion {
         Employes b5 = new EmployeDeBase("Organa", "Leia", 9, 56);
         Employes b6 = new EmployeDeBase("Croft", "Lara", 10, 56);
         
+        r1.toString();
     }
     
 }
