@@ -1,0 +1,22 @@
+diff a/javaCode/LogicielGestion/src/logicielgestion/Commercial.java b/javaCode/LogicielGestion/src/logicielgestion/Commercial.java	(rejected hunks)
+@@ -10,11 +10,17 @@
+  * @author cecil
+  */
+ public class Commercial extends Employes {
+-   
++    //volume mensuel
++    private final int volume;
+     //CONSTRUCTEUR 
+-    public Commercial(String n, String p, int mat) {
+-        super(n, p, mat);
++    public Commercial(String n, String p, int mat,int indice, int v) {
++        super(n, p, mat,indice);
++        this.volume=v;
+     }
+     
++    @Override
++    public String toString(){
++        return super.toString()+", "+ volume;
++    }
+     
+ }
