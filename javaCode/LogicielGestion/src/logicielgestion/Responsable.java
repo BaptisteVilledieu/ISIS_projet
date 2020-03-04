@@ -13,22 +13,22 @@ import java.util.TreeSet;
  */
 public class Responsable extends Employes {
     //Nouvel attribut
-    private final TreeSet<Employes> lesEmployes;
+    private final TreeSet<Employes> lesEmployesHierarchie;
     
     //CONSTRUCTEUR 
     public Responsable(String n, String p, int mat,float indice) {
         super(n, p, mat,indice);
-        this.lesEmployes = new TreeSet<>();
+        this.lesEmployesHierarchie = new TreeSet<>();
     }
     
     @Override
     public String toString(){
-        return super.toString()+ lesEmployes;
+        return super.toString()+ lesEmployesHierarchie;
     }
     public float calculSalaire(){
         return this.indiceSalarial*12;
     }
     public void ajouterHierarchie(){
-        lesEmployes
+        lesEmployesHierarchie
     }
 }
