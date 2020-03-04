@@ -20,7 +20,7 @@ public class Commercial extends Employes {
     
     @Override
     public String toString(){
-        return super.toString()+", "+ volume;
+        return super.toString()+" , "+ volume;
     }
     
     public float calculSalaire(){

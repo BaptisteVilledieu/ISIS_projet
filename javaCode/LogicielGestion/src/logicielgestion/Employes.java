@@ -29,7 +29,7 @@ public abstract class Employes {
     //TOSTRING 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", " + matricule+", d"+indiceSalarial ;
+        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", " + matricule+", "+indiceSalarial ;
     }
     
     //GETTERS 

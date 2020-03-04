@@ -13,7 +13,7 @@ import java.util.TreeSet;
  */
 public class Responsable extends Employes {
     private final TreeSet<EmployeDeBase> lesEmployesDeBase;
-    //CONSTRUCTEUR 
+    //CONSTRUCTEU 
     public Responsable(String n, String p, int mat,float indice) {
         super(n, p, mat,indice);
         this.lesEmployesDeBase = new TreeSet<>();
