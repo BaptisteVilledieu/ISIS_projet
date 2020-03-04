@@ -7,7 +7,7 @@ package logicielgestion;
 public class EmployeDeBase extends Employes {
     
     //CONSTRUCTEUR 
-    public EmployeDeBase(String n, String p, int mat,int indice) {
+    public EmployeDeBase(String n, String p, int mat,float indice) {
         super(n, p, mat, indice);
     }
     @Override

@@ -17,7 +17,7 @@ public abstract class Employes {
     protected final float indiceSalarial; 
     
     //CONSTRUCTEUR 
-    public Employes(String n, String p, int mat, int indice) {
+    public Employes(String n, String p, int mat, float indice) {
         this.nom = n;
         this.prenom = p;
         this.matricule = mat; 
@@ -56,5 +56,8 @@ public abstract class Employes {
     public void setMatricule(int matricule) {
         this.matricule = matricule;
     }
+    
+    
+    
     
 }
