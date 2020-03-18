@@ -29,6 +29,6 @@ public class Responsable extends Employes {
         return this.indiceSalarial*12;
     }
     public void ajouterHierarchie(){
-        lesEmployesHierarchie
+        return lesEmployesHierarchie;
     }
 }

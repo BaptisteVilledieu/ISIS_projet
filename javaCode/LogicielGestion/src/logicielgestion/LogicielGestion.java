@@ -28,6 +28,8 @@ public class LogicielGestion {
         Employes b6 = new EmployeDeBase("Croft", "Lara", 10, 56);
         
         r1.toString();
+        
+        //Ajouter les employés sous les ordres 
     }
     
 }
