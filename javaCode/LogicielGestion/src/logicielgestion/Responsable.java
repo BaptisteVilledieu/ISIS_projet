@@ -12,6 +12,7 @@ import java.util.TreeSet;
  * @author cecil
  */
 public class Responsable extends Employes {
+    
     //Nouvel attribut
     private final TreeSet<Employes> lesEmployesHierarchie;
     
@@ -25,10 +26,13 @@ public class Responsable extends Employes {
     public String toString(){
         return super.toString()+ lesEmployesHierarchie;
     }
-    public float calculSalaire(){
-        return this.indiceSalarial*12;
-    }
-    public void ajouterHierarchie(){
+//    @Override
+//    public float calculSalaire(){
+//        return this.indiceSalarial*12;
+//    }
+    
+    public TreeSet<Employes> ajouterHierarchie(){
         return lesEmployesHierarchie;
     }
+
 }

@@ -20,9 +20,10 @@ public class Commercial extends Employes {
     
     @Override
     public String toString(){
-        return super.toString()+" , "+ volume;
+        return super.toString()+" , " + volume;
     }
+    @Override
     public float calculSalaire(){
-        return this.indiceSalarial*12+volume/10; 
+        return this.indiceSalarial*12 + volume/10; 
     }
 }

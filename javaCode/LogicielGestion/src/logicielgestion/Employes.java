@@ -15,7 +15,7 @@ import java.util.TreeSet;
  *
  * @author cecil
  */
-public abstract class Employes implements Comparable<Employes> {
+public abstract class Employes implements Comparable<Employes>, Payable {
 
     //ATTRIBUTS
     private String nom;
@@ -58,7 +58,8 @@ public abstract class Employes implements Comparable<Employes> {
 
     }
 
-    public abstract float calculSalaire();
+    
+    //public abstract float calculSalaire();
 
     public String sommeSalaireBranche() {
         if (this instanceof Responsable) {
@@ -72,7 +73,16 @@ public abstract class Employes implements Comparable<Employes> {
     }
     
     //COMPARE TO POUR LES COMPARER GRACE A LEUR MATRICULE (par ordre croissant)
-    
+    public int compareTo(Employes e) {
+        if (this.matricule == e.matricule){
+            return -1 ;
+        }
+        if (this.matricule != e.matricule) {
+            return 1 ;
+        }
+        
+        return 0 ;
+    }
     
     //GENERATION DE HASH CODE ET EQUALS
 
@@ -89,29 +99,9 @@ public abstract class Employes implements Comparable<Employes> {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
+        
         final Employes other = (Employes) obj;
         if (this.matricule != other.matricule) {
-            return false;
-        }
-        if (Float.floatToIntBits(this.indiceSalarial) != Float.floatToIntBits(other.indiceSalarial)) {
-            return false;
-        }
-        if (!Objects.equals(this.nom, other.nom)) {
-            return false;
-        }
-        if (!Objects.equals(this.prenom, other.prenom)) {
-            return false;
-        }
-        if (!Objects.equals(this.lesEmployes, other.lesEmployes)) {
             return false;
         }
         return true;
@@ -143,5 +133,7 @@ public abstract class Employes implements Comparable<Employes> {
     public void setMatricule(int matricule) {
         this.matricule = matricule;
     }
+
+   
 
 }
