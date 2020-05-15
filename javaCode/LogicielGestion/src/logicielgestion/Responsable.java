@@ -26,10 +26,10 @@ public class Responsable extends Employes {
     public String toString(){
         return super.toString()+ lesEmployesHierarchie;
     }
-//    @Override
-//    public float calculSalaire(){
-//        return this.indiceSalarial*12;
-//    }
+    @Override
+    public double calculSalaire(){
+        return this.indiceSalarial*12;
+    }
     
     public TreeSet<Employes> ajouterHierarchie(){
         return lesEmployesHierarchie;

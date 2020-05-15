@@ -10,5 +10,5 @@ package logicielgestion;
  * @author cecil
  */
 public interface Payable {
-    void calculSalaire();
+    double calculSalaire();
 }

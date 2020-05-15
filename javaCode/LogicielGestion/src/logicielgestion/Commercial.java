@@ -23,7 +23,7 @@ public class Commercial extends Employes {
         return super.toString()+" , " + volume;
     }
     @Override
-    public float calculSalaire(){
+    public double calculSalaire(){
         return this.indiceSalarial*12 + volume/10; 
     }
 }
