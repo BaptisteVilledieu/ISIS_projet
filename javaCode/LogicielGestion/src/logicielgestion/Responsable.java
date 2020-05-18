@@ -24,7 +24,7 @@ public class Responsable extends Employes {
     
     @Override
     public String toString(){
-        return super.toString()+ lesEmployesHierarchie;
+        return super.toString() + "\n"; //+ lesEmployesHierarchie;
     }
     @Override
     public double calculSalaire(){

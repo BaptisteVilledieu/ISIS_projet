@@ -7,6 +7,7 @@ package logicielgestion;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -17,11 +18,23 @@ import java.util.TreeSet;
 public class EmployesEntreprise {
 
     //ATTRIBUT
-    private TreeSet<Employes> lesEmployes;
+    private ArrayList<Employes> lesEmployes;
 
     //CONSTRUCTEUR 
     public EmployesEntreprise() {
-        
+        this.lesEmployes = new ArrayList<>();
+    }
+    
+    //Ajouter les employés 
+    public void ajouter(Employes e){
+        lesEmployes.add(e);
+    }
+    
+    //Afficher employés entreprise 
+    @Override 
+    public String toString() {
+        return "Employés : " + lesEmployes ;
+    }
         
 //        lesEmployes = new TreeSet<>();
 //        Scanner sc;
@@ -42,4 +55,4 @@ public class EmployesEntreprise {
 //            System.out.println(e);
 //        }
     }
-}
+

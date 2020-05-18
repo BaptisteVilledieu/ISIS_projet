@@ -53,7 +53,7 @@ public abstract class Employes implements Comparable<Employes>, Payable {
     //TOSTRING 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", " + matricule + ", " + indiceSalarial;
+        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", " + matricule + ", " + indiceSalarial ;
         //Ajouter le salaire
 
     }

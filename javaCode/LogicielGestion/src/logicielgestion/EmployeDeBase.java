@@ -12,7 +12,7 @@ public class EmployeDeBase extends Employes {
     }
     @Override
     public String toString(){
-        return super.toString();
+        return super.toString()  + "\n";
     }  
     public double calculSalaire(){
         return this.indiceSalarial*12;
