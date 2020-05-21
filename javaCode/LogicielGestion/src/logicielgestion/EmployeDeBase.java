@@ -7,7 +7,7 @@ package logicielgestion;
 public class EmployeDeBase extends Employes {
     
     //CONSTRUCTEUR 
-    public EmployeDeBase(String n, String p, int mat,float indice) {
+    public EmployeDeBase(String n, String p, int mat,int indice) {
         super(n, p, mat, indice);
     }
     @Override
@@ -17,7 +17,7 @@ public class EmployeDeBase extends Employes {
     public double calculSalaire(){
         return super.calculSalaire();
     }
-    public String sommeSalaireBranche(){
-        
-    }
+//    public String sommeSalaireBranche(){
+//        
+//    }
 }

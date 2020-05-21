@@ -18,6 +18,7 @@ public class LogicielGestion {
         //Création de tous les employés de l'entreprise 
         EmployesEntreprise entreprise = new EmployesEntreprise();
         System.out.println(entreprise);
+        
 //        entreprise.ajouter(new Responsable("Biffi", "Emma", 1, 150));
 //        entreprise.ajouter(new Responsable("Lacoste", "Thomas", 2, 150));
 //        entreprise.ajouter(new Commercial("Cazenave", "Sara", 3, 100, 10));
@@ -27,25 +28,7 @@ public class LogicielGestion {
 //        entreprise.ajouter(new EmployeDeBase("Ackerman", "Levi", 7, 56));
 //        entreprise.ajouter(new EmployeDeBase("Hyuga", "Hinata", 8, 56));
 //        entreprise.ajouter(new EmployeDeBase("Organa", "Leia", 9, 56));
-//        entreprise.ajouter(new EmployeDeBase("Croft", "Lara", 10, 56));
-        
-        
-        
-//        Employes r1 = new Responsable("Biffi", "Emma", 1, 150);
-//        Employes r2 = new Responsable("Lacoste", "Thomas", 2, 150);
-//        Employes c1 = new Commercial("Cazenave", "Sara", 3, 100, 10);
-//        Employes c2 = new Commercial("Freecs", "Gon", 4, 100, 10);
-//        Employes b1 = new EmployeDeBase("Uchiha", "Sasuke", 5, 56);
-//        Employes b2 = new EmployeDeBase("Elric", "Alphonse", 6, 56);
-//        Employes b3 = new EmployeDeBase("Ackerman", "Levi", 7, 56);
-//        Employes b4 = new EmployeDeBase("Hyuga", "Hinata", 8, 56);
-//        Employes b5 = new EmployeDeBase("Organa", "Leia", 9, 56);
-//        Employes b6 = new EmployeDeBase("Croft", "Lara", 10, 56);
-        
-//        b1.toString();
-//        c1.toString();
-//        r2.toString();
-    
+//        entreprise.ajouter(new EmployeDeBase("Croft", "Lara", 10, 56));    
         
         //Ajouter les employés sous les ordres 
     }

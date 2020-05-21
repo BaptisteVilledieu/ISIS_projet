@@ -17,7 +17,7 @@ public class Responsable extends Employes {
     private final TreeSet<Employes> lesEmployesHierarchie;
     
     //CONSTRUCTEUR 
-    public Responsable(String n, String p, int mat,float indice) {
+    public Responsable(String n, String p, int mat,int indice) {
         super(n, p, mat,indice);
         this.lesEmployesHierarchie = new TreeSet<>();
     }
@@ -30,10 +30,10 @@ public class Responsable extends Employes {
     public double calculSalaire(){
         return super.calculSalaire();
     }
-    public String sommeSalaireBranche(){
-        
-    }
-    
+//    public String sommeSalaireBranche(){
+//        
+//    }
+//    
     public TreeSet<Employes> ajouterHierarchie(){
         return lesEmployesHierarchie;
     }
