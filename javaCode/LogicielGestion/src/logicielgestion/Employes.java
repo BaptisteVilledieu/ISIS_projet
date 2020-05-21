@@ -15,7 +15,7 @@ import java.util.TreeSet;
  *
  * @author cecil
  */
-public abstract class Employes implements Comparable<Employes>, Payable {
+public class Employes implements Comparable<Employes>, Payable {
 
     //ATTRIBUTS
     private String nom;
@@ -59,18 +59,11 @@ public abstract class Employes implements Comparable<Employes>, Payable {
     }
 
     
-    //public abstract float calculSalaire();
-
-    public String sommeSalaireBranche() {
-        if (this instanceof Responsable) {
-            //.... gens qui sont sous les ordres du repsonsable directement ou indirectement 
-            //
-        }
-        else {
-            
-        }
-      return "s" ;   
+    public double calculSalaire(){
+        return this.indiceSalarial/12;
     }
+           
+
     
     //COMPARE TO POUR LES COMPARER GRACE A LEUR MATRICULE (par ordre croissant)
     public int compareTo(Employes e) {

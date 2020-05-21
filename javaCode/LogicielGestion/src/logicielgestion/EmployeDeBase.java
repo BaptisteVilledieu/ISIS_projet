@@ -15,6 +15,9 @@ public class EmployeDeBase extends Employes {
         return super.toString()  + "\n";
     }  
     public double calculSalaire(){
-        return this.indiceSalarial*12;
+        return super.calculSalaire();
+    }
+    public String sommeSalaireBranche(){
+        
     }
 }

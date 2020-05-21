@@ -28,7 +28,10 @@ public class Responsable extends Employes {
     }
     @Override
     public double calculSalaire(){
-        return this.indiceSalarial*12;
+        return super.calculSalaire();
+    }
+    public String sommeSalaireBranche(){
+        
     }
     
     public TreeSet<Employes> ajouterHierarchie(){

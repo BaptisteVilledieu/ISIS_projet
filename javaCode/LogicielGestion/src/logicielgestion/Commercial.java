@@ -24,6 +24,10 @@ public class Commercial extends Employes {
     }
     @Override
     public double calculSalaire(){
-        return this.indiceSalarial*12 + volume/10; 
+        return super.calculSalaire()+ volume/10; 
+    }
+
+    public String sommeSalaireBranche(){
+        
     }
 }
