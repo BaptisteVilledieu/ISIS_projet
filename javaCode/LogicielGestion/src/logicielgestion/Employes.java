@@ -21,11 +21,11 @@ public class Employes implements Comparable<Employes>, Payable {
     private String nom;
     private String prenom;
     private int matricule;
-    protected final float indiceSalarial;
+    protected final int indiceSalarial;
     private TreeSet<Employes> lesEmployes;
 
     //CONSTRUCTEUR 
-    public Employes(String n, String p, int mat, float indice) /*throws EmployesException*/ {
+    public Employes(String n, String p, int mat, int indice) /*throws EmployesException*/ {
         this.nom = n;
         this.prenom = p;
         this.matricule = mat;

@@ -17,16 +17,17 @@ public class LogicielGestion {
     public static void main(String[] args) {
         //Création de tous les employés de l'entreprise 
         EmployesEntreprise entreprise = new EmployesEntreprise();
-        entreprise.ajouter(new Responsable("Biffi", "Emma", 1, 150));
-        entreprise.ajouter(new Responsable("Lacoste", "Thomas", 2, 150));
-        entreprise.ajouter(new Commercial("Cazenave", "Sara", 3, 100, 10));
-        entreprise.ajouter(new Commercial("Freecs", "Gon", 4, 100, 10));
-        entreprise.ajouter(new EmployeDeBase("Uchiha", "Sasuke", 5, 56));
-        entreprise.ajouter(new EmployeDeBase("Elric", "Alphonse", 6, 56));
-        entreprise.ajouter(new EmployeDeBase("Ackerman", "Levi", 7, 56));
-        entreprise.ajouter(new EmployeDeBase("Hyuga", "Hinata", 8, 56));
-        entreprise.ajouter(new EmployeDeBase("Organa", "Leia", 9, 56));
-        entreprise.ajouter(new EmployeDeBase("Croft", "Lara", 10, 56));
+        System.out.println(entreprise);
+//        entreprise.ajouter(new Responsable("Biffi", "Emma", 1, 150));
+//        entreprise.ajouter(new Responsable("Lacoste", "Thomas", 2, 150));
+//        entreprise.ajouter(new Commercial("Cazenave", "Sara", 3, 100, 10));
+//        entreprise.ajouter(new Commercial("Freecs", "Gon", 4, 100, 10));
+//        entreprise.ajouter(new EmployeDeBase("Uchiha", "Sasuke", 5, 56));
+//        entreprise.ajouter(new EmployeDeBase("Elric", "Alphonse", 6, 56));
+//        entreprise.ajouter(new EmployeDeBase("Ackerman", "Levi", 7, 56));
+//        entreprise.ajouter(new EmployeDeBase("Hyuga", "Hinata", 8, 56));
+//        entreprise.ajouter(new EmployeDeBase("Organa", "Leia", 9, 56));
+//        entreprise.ajouter(new EmployeDeBase("Croft", "Lara", 10, 56));
         
         
         
@@ -44,7 +45,7 @@ public class LogicielGestion {
 //        b1.toString();
 //        c1.toString();
 //        r2.toString();
-    System.out.println(entreprise);
+    
         
         //Ajouter les employés sous les ordres 
     }
