@@ -32,6 +32,7 @@ public class EmployesEntreprise {
         try {
             //nomFic est le nom du fichier avec son chemin 
             sc = new Scanner(new File("D:\\COURS_ISIS\\S2\\PROJET_JAVA\\EMPLOYES.txt"));
+            sc.useDelimiter("\r\n");
             // On lit la première ligne d'entête que l'on ne traite pas 
             String ligne = sc.nextLine();
             while (sc.hasNext()) {
@@ -43,14 +44,14 @@ public class EmployesEntreprise {
                 int matricule = Integer.valueOf(res[2]);
                 int indiceSalarial = Integer.valueOf(res[3]);
                 String fonction = res[4];
-                int volume = Integer.valueOf(res[5]);
-                if (res[4].equals("Responsable")) {
+                if (fonction.equals("Responsable")) {
                     lesEmployes.add(new Responsable(res[0], res[1], Integer.parseInt(res[2]), Integer.parseInt(res[3])));
                 }
-                if (res[4].equals("Commercial")) {
+                if (fonction.equals("Commercial")) {
+                    int volume = Integer.parseInt(res[5]);
                     lesEmployes.add(new Commercial(res[0], res[1], Integer.parseInt(res[2]), Integer.parseInt(res[3]), Integer.parseInt(res[5])));
                 }
-                if (res[4].equals("EmployeDeBase")) {
+                if (fonction.equals("EmployeDeBase")) {
                     lesEmployes.add(new EmployeDeBase(res[0], res[1], Integer.parseInt(res[2]), Integer.parseInt(res[3])));
                 }
             }
