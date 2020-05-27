@@ -17,7 +17,4 @@ public class EmployeDeBase extends Employes {
     public double calculSalaire(){
         return super.calculSalaire();
     }
-//    public String sommeSalaireBranche(){
-//        
-//    }
 }

@@ -27,7 +27,4 @@ public class Commercial extends Employes {
         return super.calculSalaire()+ volume/10; 
     }
 
-//    public String sommeSalaireBranche(){
-//        
-//    }
 }

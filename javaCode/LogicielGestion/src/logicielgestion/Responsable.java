@@ -5,7 +5,7 @@
  */
 package logicielgestion;
 
-import java.util.TreeSet;
+import java.util.HashSet;
 
 /**
  *
@@ -14,12 +14,12 @@ import java.util.TreeSet;
 public class Responsable extends Employes {
     
     //Nouvel attribut
-    private final TreeSet<Employes> lesEmployesHierarchie;
+    private final HashSet<Employes> lesEmployesHierarchie;
     
     //CONSTRUCTEUR 
     public Responsable(String n, String p, int mat,int indice) {
         super(n, p, mat,indice);
-        this.lesEmployesHierarchie = new TreeSet<>();
+        this.lesEmployesHierarchie = new HashSet<>();
     }
     
     @Override
@@ -34,7 +34,7 @@ public class Responsable extends Employes {
 //        
 //    }
 //    
-    public TreeSet<Employes> ajouterHierarchie(){
+    public HashSet<Employes> ajouterHierarchie(){
         return lesEmployesHierarchie;
     }
 
