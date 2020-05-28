@@ -7,15 +7,19 @@ package logicielgestion;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 /**
  *
  * @author cecil
  */
-public class Employes implements Comparable<Employes>, Payable {
+public class Employes implements Comparable<Employes>, Payable, Serializable {
 
     //ATTRIBUTS
     private String nom;
@@ -31,39 +35,21 @@ public class Employes implements Comparable<Employes>, Payable {
         this.matricule = mat;
         this.indiceSalarial = indice;
         lesEmployes = new TreeSet<>();
-        Scanner sc;
-
-//        try {
-//            //nomFic est le nom du fichier avec son chemin 
-//            sc = new Scanner(new File("D:\\JAVA\\SEMESTRE 1\\villes_tarn.csv"));
-//            // On lit la première ligne d'entête que l'on ne traite pas 
-//            String ligne = sc.nextLine();
-//            while (sc.hasNext()) {
-//                // On lit une nouvelle ligne 
-//                ligne = sc.nextLine();
-//                String[] res = ligne.split(";");
-//                lesEmployes.add(new Employes(res[0], Integer.parseInt(res[1]), Integer.parseInt(res[2]), Integer.parseInt(res[3])));
-//            }
-//
-//        } catch (FileNotFoundException e) {
-//            System.out.println(e);
-//        }
     }
 
-    //TOSTRING 
+    //affichage de l'employé  
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", " + matricule + ", " + indiceSalarial ;
+        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", matricule : " + matricule + ", indice salarial : " + indiceSalarial ;
         //Ajouter le salaire
 
     }
-
     
+    @Override
     public double calculSalaire(){
         return this.indiceSalarial/12;
     }
            
-
     
     //COMPARE TO POUR LES COMPARER GRACE A LEUR MATRICULE (par ordre croissant)
     public int compareTo(Employes e) {
@@ -127,6 +113,48 @@ public class Employes implements Comparable<Employes>, Payable {
         this.matricule = matricule;
     }
 
+    /**
+     * Méthode de sauvegarde de l'instance dans le fichier dont le chemin est
+     * passé en paramètre.
+     *
+     * @param filePath Le chemin du fichier de sauvegarde
+     * @throws IOException
+     */
    
+    public String getTexteASauver(){
+        return nom + "|" + prenom + "|" + matricule + "|" + indiceSalarial ;
+    }
+    
+    public void sauverTexte(String EMPLOYES) throws IOException {
+        /* Un flux textuel en écriture vers le fichier passé en paramètre
+         * Le booléen en second paramètre indique que les données sont ajoutées
+         * à la fin du fichier
+         */
+        FileWriter fw = new FileWriter(EMPLOYES, true);
+        // Pour chaque attribut de mon instance je l'écris dans le fichier
+        fw.write(this.getTexteASauver());
+        fw.write(System.lineSeparator());
+        fw.close();
+    }
+    
+    /**
+     * Méthode de classe permettant de lire et retourner un objet Personne dans
+     * la String passée en paramètre.
+     *
+     * @param content La String à parcourir
+     * @return L'objet Personne lu dans la String content.
+     */
+    public static Employes lireTexte(String content) {
+        Scanner sc = new Scanner(content);
+        String ligne = sc.next();
+        StringTokenizer token = new StringTokenizer(ligne, "|");
+        String nom = token.nextToken();
+        String prenom = token.nextToken();
+        String sMatricule = token.nextToken();
+        String sIndiceSalarial = token.nextToken();
+        int matricule = Integer.parseInt(sMatricule);
+        int indiceSalarial = Integer.parseInt(sIndiceSalarial);
+        return new Employes(nom, prenom, matricule, indiceSalarial);
+    }
 
 }

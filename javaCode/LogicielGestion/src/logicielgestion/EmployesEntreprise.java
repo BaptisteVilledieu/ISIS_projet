@@ -6,7 +6,13 @@
 package logicielgestion;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -16,94 +22,140 @@ import java.util.TreeSet;
  *
  * @author cecil
  */
-public class EmployesEntreprise {
+public class EmployesEntreprise extends HashSet<Employes> implements Serializable {
 
     //ATTRIBUT
-    private ArrayList<Employes> lesEmployes;
-//     private ArrayList<Employes> lesEmployes;
-//
-//    //CONSTRUCTEUR 
+    private HashSet<Employes> lesEmployes;
 
+//  //CONSTRUCTEUR 
     public EmployesEntreprise() {
-        
-        lesEmployes = new ArrayList<>();
-        Scanner sc;
-
-        try {
-            //nomFic est le nom du fichier avec son chemin 
-            sc = new Scanner(new File("D:\\COURS_ISIS\\S2\\PROJET_JAVA\\EMPLOYES.txt"));
-            sc.useDelimiter("\r\n");
-            // On lit la première ligne d'entête que l'on ne traite pas 
-            String ligne = sc.nextLine();
-            while (sc.hasNext()) {
-                // On lit une nouvelle ligne 
-                ligne = sc.nextLine();
-                String[] res = ligne.split(",");
-                String nom = res[0];
-                String prenom = res[1];
-                int matricule = Integer.valueOf(res[2]);
-                int indiceSalarial = Integer.valueOf(res[3]);
-                String fonction = res[4];
-                if (fonction.equals("Responsable")) {
-                    lesEmployes.add(new Responsable(res[0], res[1], Integer.parseInt(res[2]), Integer.parseInt(res[3])));
-                }
-                if (fonction.equals("Commercial")) {
-                    int volume = Integer.parseInt(res[5]);
-                    lesEmployes.add(new Commercial(res[0], res[1], Integer.parseInt(res[2]), Integer.parseInt(res[3]), Integer.parseInt(res[5])));
-                }
-                if (fonction.equals("EmployeDeBase")) {
-                    lesEmployes.add(new EmployeDeBase(res[0], res[1], Integer.parseInt(res[2]), Integer.parseInt(res[3])));
-                }
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
-        }
-
-//        }
-//                String[] tabChamp = ligne.split("\t");
-//                String nom = tabChamp[0];
-//                String prenom = tabChamp[1];
-//                int matricule = Integer.valueOf(tabChamp[2]);
-//                int indiceSalarial = Integer.valueOf(tabChamp[3]);
-//                String fonction = tabChamp[4];
-//                int volume = Integer.valueOf(tabChamp[5]);
-//                
-//                if (tabChamp[5].equals("Responsable")){
-//                    lesEmployes.add(new Responsable(tabChamp[0], tabChamp[1], Integer.parseInt(tabChamp[2]), Integer.parseInt(tabChamp[3])));
-//                }
-//                if (tabChamp[5].equals("Commercial")){
-//                    lesEmployes.add(new Commercial(tabChamp[0], tabChamp[1], Integer.parseInt(tabChamp[2]), Integer.parseInt(tabChamp[3]), Integer.parseInt(tabChamp[6])));
-//                }
-//                if (tabChamp[5].equals("EmployeDeBase")){
-//                    lesEmployes.add(new EmployeDeBase(tabChamp[0], tabChamp[1], Integer.parseInt(tabChamp[2]), Integer.parseInt(tabChamp[3])));
-//                }
-//            }
-//
-//         catch (FileNotFoundException e) {
-//            System.out.println(e);
-//        }
+        lesEmployes = new HashSet<>();
     }
 
+    //Afficher les employés de l'entreprise
     @Override
     public String toString() {
         return "Employés de l'entreprise : " + lesEmployes;
     }
+ 
+    //Ajouter les employés 
+    public void ajouter(Employes e){
+        lesEmployes.add(e);
+    }
+    
+    //Supprimer les employés 
+    public void supprimer(Employes e){
+        lesEmployes.remove(e);
+    }
+    
+    //Getter
+    public HashSet<Employes> getLesEmployes() {
+        return lesEmployes;
+    }
+    
+    //Setter 
+    public void setLesEmployes(HashSet<Employes> lesEmployes) {
+        this.lesEmployes = lesEmployes;
+    }
+    
+    //Afficher la hiérarchie d'un responsable
+    
 
-//    public EmployesEntreprise() {
-//        this.lesEmployes = new ArrayList<>();
+    //Calculer le salaire (méthode récursive)
+    
+    
+    //afficher la hiérarchie complète 
+    
+    
+    //on va utiliser "if( Employes instance of 'Responsable'){}..."pour savoir si c'est un responsable 
+
+    /*
+    Méthodes d'instance
+     */
+    /**
+     * Méthode de sauvegarde de l'instance dans le fichier dont le chemin est
+     * passé en paramètre.
+     *
+     * @param filePath Le chemin du fichier de sauvegarde
+     * @throws java.io.FileNotFoundException
+     */
+    public void sauver(String EMPLOYES)
+            throws FileNotFoundException, IOException {
+        // Un flux binaire en écriture vers le fichier passé en paramètre
+        FileOutputStream fos = new FileOutputStream(EMPLOYES);
+        // Un flux de traitement des objets construit sur le flux binaire
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        // Ecriture de l'objet courant (this) dans le flux de traitement,
+        // donc dans le fichier
+        oos.writeObject(this);
+        // Fermeture du flux (obligatoire)
+        oos.close();
+    }
+
+    /**
+     * Méthode de classe permettant de lire et retourner un objet Voiture dans
+     * le fichier dont le chemin est passé en paramètre.
+     *
+     * @param filePath Le chemin du fichier lu
+     * @return L'objet Voiture lu dans le fichier, ou null s'il n'y en a pas.
+     * @throws java.io.FileNotFoundException
+     * @throws java.lang.ClassNotFoundException
+     */
+    public static EmployesEntreprise lire(String EMPLOYES)
+            throws FileNotFoundException, IOException, ClassNotFoundException {
+        // Un flux binaire en lecture sur le fichier passé en paramètre
+        FileInputStream fis = new FileInputStream(EMPLOYES);
+        // Un flux de traitement des objets construit sur le flux binaire
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        // Lecture d'un objet dans le flux de traitement. La méthode readObject()
+        // retourne un Object, il convient donc de le transtyper (cast) en Personne.
+        EmployesEntreprise obj = (EmployesEntreprise) ois.readObject();
+        ois.close();
+        return obj;
+    }
+
+//    /**
+//     * Méthode de sauvegarde de l'instance dans le fichier dont le chemin est
+//     * passé en paramètre.
+//     *
+//     * @param filePath Le chemin du fichier de sauvegarde
+//     * @throws IOException
+//     */
+//    public void sauverTexte(String filePath) throws IOException {
+//        /* Un flux textuel en écriture vers le fichier passé en paramètre
+//         * Le booléen en second paramètre indique que les données sont ajoutées
+//         * à la fin du fichier
+//         */
+//        FileWriter fw = new FileWriter(filePath, true);
+//        // Pour chaque attribut de mon instance je l'écris dans le fichier
+//        fw.write(puissance + "#" + modele + "#");
+//        for (Personne p : conducteurs) {
+//            fw.write(p.getTexteASauver() + "#");
+//        }
+//        // On insère un retour à la ligne
+//        fw.write(System.lineSeparator());
+//        fw.close();
 //    }
-//    
-//    //Ajouter les employés 
-//    public void ajouter(Employes e){
-//        lesEmployes.add(e);
-//    }
-//    //Afficher employés entreprise 
-//    @Override 
-//    public String toString() {
-//        return "Employés : " + lesEmployes ;
-//    }
-//        lesEmployes = new TreeSet<>();
-//        Scanner sc;
 //
-//       
+//    /**
+//     * Méthode de classe permettant de lire et retourner un objet Voiture dans
+//     * le fichier texte dont le chemin est passé en paramètre.
+//     *
+//     * @param filePath Le chemin du fichier lu
+//     * @return L'objet Voiture lu dans le fichier.
+//     */
+//    public static Voiture lireTexte(String filePath) throws IOException {
+//        Scanner sc = new Scanner(Paths.get(filePath));
+//        String ligne = sc.next();
+//        StringTokenizer token = new StringTokenizer(ligne, "#");
+//        String sPuissance = token.nextToken();
+//        int puissance = Integer.parseInt(sPuissance);
+//        String modele = token.nextToken();
+//        HashSet<Personne> conducteurs = new HashSet<>();
+//        while (token.hasMoreElements()) {
+//            conducteurs.add(Personne.lireTexte(token.nextToken()));
+//        }
+//        return new Voiture(puissance, modele, conducteurs);
+//    }
+//   
 }
