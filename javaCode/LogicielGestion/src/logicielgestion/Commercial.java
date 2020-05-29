@@ -11,9 +11,9 @@ package logicielgestion;
  */
 public class Commercial extends Employes {
     //volume mensuel
-    private final int volume;
+    private final double volume;
     //CONSTRUCTEUR 
-    public Commercial(String n, String p, int mat,int indice, int v) {
+    public Commercial(String n, String p, int mat,int indice, double v) {
         super(n, p, mat,indice);
         this.volume=v;
     }
@@ -27,7 +27,9 @@ public class Commercial extends Employes {
         return super.calculSalaire()+ volume/10; 
     }
 
-//    public String sommeSalaireBranche(){
-//        
-//    }
+    //Texte à sauvegarder 
+    @Override
+    public String getTexteASauver(){
+        return super.getTexteASauver() + "|" + volume ;
+    }
 }

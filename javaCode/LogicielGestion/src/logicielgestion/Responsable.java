@@ -5,7 +5,7 @@
  */
 package logicielgestion;
 
-import java.util.TreeSet;
+import java.util.HashSet;
 
 /**
  *
@@ -14,28 +14,60 @@ import java.util.TreeSet;
 public class Responsable extends Employes {
     
     //Nouvel attribut
-    private final TreeSet<Employes> lesEmployesHierarchie;
+    private final HashSet<Employes> lesSubordonnes;
     
     //CONSTRUCTEUR 
     public Responsable(String n, String p, int mat,int indice) {
         super(n, p, mat,indice);
-        this.lesEmployesHierarchie = new TreeSet<>();
+        this.lesSubordonnes = new HashSet<>();
     }
     
+    //Afficher le responsable 
     @Override
     public String toString(){
-        return super.toString() + "\n"; //+ lesEmployesHierarchie;
+        return super.toString() + "\n"; 
     }
+    
+    //Ajouter des subordonnés (void)
+    public void ajouterSubordonne() {
+        
+    }
+    
+    
+    //Afficher la hiérarchie du responsable (void)
+    public void afficherHierarchie() {
+        
+    }
+    
+    //Afficher la hiérarchie directe du responsable (void)
+    public void affichierHierarchieDirecte(){
+        
+    }
+    
+    //Afficher le salaire de la hiérarchie (double)
+    public double afficherSalaireHierarchie() {
+        return 1;
+    }
+    
+    //Afficher le salaire de la hiérarchie directe (double)
+   public double afficherSalaireHierarchieDirecte() {
+       return 1; 
+   }
+    
+    //Calcul salaire hiérarchie 
     @Override
     public double calculSalaire(){
         return super.calculSalaire();
     }
-//    public String sommeSalaireBranche(){
-//        
-//    }
-//    
-    public TreeSet<Employes> ajouterHierarchie(){
-        return lesEmployesHierarchie;
-    }
 
+    //Getter
+    public HashSet<Employes> getLesSubordonnes() {
+        return lesSubordonnes;
+    }
+    
+    //Texte à sauvegarder (string)
+    public String getTexteASauver() {
+        return super.getTexteASauver() + "|" + lesSubordonnes ;
+    }
+    
 }

@@ -32,19 +32,19 @@ public class EmployesEntreprise extends HashSet<Employes> implements Serializabl
         lesEmployes = new HashSet<>();
     }
 
-    //Afficher les employés de l'entreprise
+    //Afficher tous les employés de l'entreprise
     @Override
     public String toString() {
-        return "Employés de l'entreprise : " + lesEmployes;
+        return "Employés de l'entreprise : {" + lesEmployes + "}";
     }
  
     //Ajouter les employés 
-    public void ajouter(Employes e){
+    public void ajouterEmploye(Employes e){
         lesEmployes.add(e);
     }
     
     //Supprimer les employés 
-    public void supprimer(Employes e){
+    public void supprimerEmploye(Employes e){
         lesEmployes.remove(e);
     }
     
@@ -58,16 +58,18 @@ public class EmployesEntreprise extends HashSet<Employes> implements Serializabl
         this.lesEmployes = lesEmployes;
     }
     
-    //Afficher la hiérarchie d'un responsable
-    
-
-    //Calculer le salaire (méthode récursive)
+    //Calculer les salaires de l'entreprise (méthode récursive) (double)
     
     
-    //afficher la hiérarchie complète 
+    //Sauvegarde de l'entreprise 
+    
+    
+    //Lire la sauvegarde de l'entreprise 
     
     
     //on va utiliser "if( Employes instance of 'Responsable'){}..."pour savoir si c'est un responsable 
+    
+    
 
     /*
     Méthodes d'instance

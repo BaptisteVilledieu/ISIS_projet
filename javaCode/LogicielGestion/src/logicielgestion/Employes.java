@@ -13,20 +13,18 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-import java.util.TreeSet;
 
 /**
  *
  * @author cecil
  */
-public class Employes implements Comparable<Employes>, Payable, Serializable {
+public class Employes implements Payable, Serializable {
 
     //ATTRIBUTS
     private String nom;
     private String prenom;
     private int matricule;
     protected final int indiceSalarial;
-    private TreeSet<Employes> lesEmployes;
 
     //CONSTRUCTEUR 
     public Employes(String n, String p, int mat, int indice) /*throws EmployesException*/ {
@@ -34,7 +32,6 @@ public class Employes implements Comparable<Employes>, Payable, Serializable {
         this.prenom = p;
         this.matricule = mat;
         this.indiceSalarial = indice;
-        lesEmployes = new TreeSet<>();
     }
 
     //affichage de l'employé  
@@ -49,33 +46,18 @@ public class Employes implements Comparable<Employes>, Payable, Serializable {
     public double calculSalaire(){
         return this.indiceSalarial/12;
     }
-           
-    
-    //COMPARE TO POUR LES COMPARER GRACE A LEUR MATRICULE (par ordre croissant)
-    public int compareTo(Employes e) {
-        if (this.matricule == e.matricule){
-            return -1 ;
-        }
-        if (this.matricule != e.matricule) {
-            return 1 ;
-        }
-        
-        return 0 ;
-    }
     
     //GENERATION DE HASH CODE ET EQUALS
-
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + Objects.hashCode(this.nom);
-        hash = 37 * hash + Objects.hashCode(this.prenom);
-        hash = 37 * hash + this.matricule;
-        hash = 37 * hash + Float.floatToIntBits(this.indiceSalarial);
-        hash = 37 * hash + Objects.hashCode(this.lesEmployes);
+        int hash = 5;
+        hash = 23 * hash + Objects.hashCode(this.nom);
+        hash = 23 * hash + Objects.hashCode(this.prenom);
+        hash = 23 * hash + this.matricule;
+        hash = 23 * hash + this.indiceSalarial;
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         

@@ -10,14 +10,20 @@ public class EmployeDeBase extends Employes {
     public EmployeDeBase(String n, String p, int mat,int indice) {
         super(n, p, mat, indice);
     }
+    
+    //Afficher l'employe
     @Override
     public String toString(){
         return super.toString()  + "\n";
     }  
+    
+    //Calculer le salaire de l'employe
     public double calculSalaire(){
         return super.calculSalaire();
     }
-//    public String sommeSalaireBranche(){
-//        
-//    }
+
+    //Texte à sauvegarder
+    public String getTexteASauver(){
+        return super.getTexteASauver() ;
+    }
 }
