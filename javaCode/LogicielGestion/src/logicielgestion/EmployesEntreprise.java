@@ -65,6 +65,15 @@ public class EmployesEntreprise extends HashSet<Employes> implements Serializabl
         System.out.println("Salaire de l'entreprise : " + salaire + "€");
     }
     
+    //Affichage de la hiérarchie complète de l'entreprise 
+    public void afficherHierarchieComplete() {
+        for (Employes e : this.lesEmployes) {          
+            if (e instanceof Responsable){
+                ((Responsable) e).afficherHierarchieDirecte();
+            }
+        }
+    }
+    
     
     //Sauvegarde de l'entreprise 
     

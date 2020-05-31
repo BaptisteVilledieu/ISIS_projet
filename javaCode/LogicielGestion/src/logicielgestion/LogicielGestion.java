@@ -69,7 +69,7 @@ public class LogicielGestion {
         System.out.println("Salaire de l'employé matricule" + e6.getMatricule() + " : " + e6.calculSalaire() + "€");
         System.out.println("Salaire de l'employé matricule" + e7.getMatricule() + " : " + e7.calculSalaire() + "€");
         System.out.println("Salaire de l'employé matricule" + e8.getMatricule() + " : " + e8.calculSalaire() + "€");
-        System.out.println("Salaire de l'employé matricule" + e9.getMatricule() + " : " + e9.calculSalaire() + "€");
+        System.out.println("Salaire de l'employé matricule" + e9.getMatricule() + " : " + e9.calculSalaire() + "€" + "\n");
 
         //Ajouter des subordonnés aux responsables 
         r1.ajouterSubordonne(e6);
@@ -93,16 +93,20 @@ public class LogicielGestion {
 //
 //        //Afficher hiérarchie inférieure d'un responsble 
 //        r1.afficherHierarchie();
+
+        //Afficher hiérarchie complète de l'entreprise
+        entreprise.afficherHierarchieComplete();
 //
 //        //Afficher le salaire d'une branche de la hiérarchie 
 //        r1.afficherSalaireHierarchieDirecte();
+//
+//        //Salaire de toute l'entreprise
+//        entreprise.afficherSalaireEntreprise();
+//        
+//        //Salaire par branche de hiérarchie
+//        r1.afficherSalaireHierarchieDirecte();
 
-        //Salaire de toute l'entreprise
-        entreprise.afficherSalaireEntreprise();
         
-        //Salaire par branche de hiérarchie
-        r1.afficherSalaireHierarchieDirecte();
-
     }
 
 }

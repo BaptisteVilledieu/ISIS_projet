@@ -32,6 +32,11 @@ public class Responsable extends Employes {
     public void ajouterSubordonne(Employes e) {
         lesSubordonnes.add(e);
     }
+    
+    //Supprimer des subordonnés 
+    public void supprimerSubordonne(Employes e){
+        lesSubordonnes.remove(e);
+    }
 
     //Afficher la hiérarchie inférieure directe d'un responsable (void)
     public void afficherHierarchieDirecte() {
