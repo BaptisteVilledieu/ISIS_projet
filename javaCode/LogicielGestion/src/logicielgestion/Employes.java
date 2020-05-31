@@ -13,6 +13,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.logging.Logger;
 
 /**
  *
@@ -44,7 +45,7 @@ public class Employes implements Payable, Serializable {
     
     @Override
     public double calculSalaire(){
-        return this.indiceSalarial/12;
+        return this.indiceSalarial*12;
     }
     
     //GENERATION DE HASH CODE ET EQUALS
@@ -80,6 +81,10 @@ public class Employes implements Payable, Serializable {
 
     public int getMatricule() {
         return matricule;
+    }
+
+    public int getIndiceSalarial() {
+        return indiceSalarial;
     }
 
     //SETTERS

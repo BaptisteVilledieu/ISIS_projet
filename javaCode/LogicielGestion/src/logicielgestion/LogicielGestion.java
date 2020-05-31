@@ -16,22 +16,29 @@ public class LogicielGestion {
      */
     public static void main(String[] args) {
         //Création de tous les employés de l'entreprise 
-        Responsable r1 = new Responsable("Biffi", "Emma", 1, 50000);
-        Responsable r2 = new Responsable("Lacoste", "Thomas", 2, 50000);
-        Commercial c1 = new Commercial("Cazenave", "Sara", 3, 100, 40000);
-        Commercial c2 = new Commercial("Freecs", "Gon", 4, 100, 40000);
-        EmployeDeBase e1 = new EmployeDeBase("Uchiha", "Sasuke", 5, 20000);
-        EmployeDeBase e2 = new EmployeDeBase("Elric", "Alphonse", 6, 20000);
-        EmployeDeBase e3 = new EmployeDeBase("Hyuga", "Hinata", 8, 20000);
-        EmployeDeBase e4 = new EmployeDeBase("Ackerman", "Levi", 7, 20000);
-        EmployeDeBase e5 = new EmployeDeBase("Organa", "Leia", 9, 20000);
-        EmployeDeBase e6 = new EmployeDeBase("Croft", "Lara", 10, 20000);
-            
+        Responsable r1 = new Responsable("Biffi", "Emma", 1, 750);
+        Responsable r2 = new Responsable("Lacoste", "Thomas", 2, 750);
+        Responsable r3 = new Responsable("Palo", "Lucile", 11, 730);
+        Responsable r4 = new Responsable("Palo", "Lucile", 14, 700);
+        Commercial c1 = new Commercial("Cazenave", "Sara", 3, 480, 80);
+        Commercial c2 = new Commercial("Freecs", "Gon", 4, 480, 80);
+        EmployeDeBase e1 = new EmployeDeBase("Uchiha", "Sasuke", 5, 420);
+        EmployeDeBase e2 = new EmployeDeBase("Elric", "Alphonse", 6, 420);
+        EmployeDeBase e3 = new EmployeDeBase("Hyuga", "Hinata", 8, 420);
+        EmployeDeBase e4 = new EmployeDeBase("Ackerman", "Levi", 7, 420);
+        EmployeDeBase e5 = new EmployeDeBase("Organa", "Leia", 9, 420);
+        EmployeDeBase e6 = new EmployeDeBase("Croft", "Lara", 10, 420);
+        EmployeDeBase e7 = new EmployeDeBase("Turet", "Laura", 12, 420);
+        EmployeDeBase e8 = new EmployeDeBase("Salmo", "Hugo", 13, 420);
+        EmployeDeBase e9 = new EmployeDeBase("Zert", "Florian", 15, 420);
+
         //Création de l'entreprise 
-        EmployesEntreprise entreprise = new EmployesEntreprise(); 
-        
+        EmployesEntreprise entreprise = new EmployesEntreprise();
+
         entreprise.ajouterEmploye(r1);
         entreprise.ajouterEmploye(r2);
+        entreprise.ajouterEmploye(r3);
+        entreprise.ajouterEmploye(r4);
         entreprise.ajouterEmploye(c1);
         entreprise.ajouterEmploye(c2);
         entreprise.ajouterEmploye(e1);
@@ -40,13 +47,18 @@ public class LogicielGestion {
         entreprise.ajouterEmploye(e4);
         entreprise.ajouterEmploye(e5);
         entreprise.ajouterEmploye(e6);
-        
+        entreprise.ajouterEmploye(e7);
+        entreprise.ajouterEmploye(e8);
+        entreprise.ajouterEmploye(e9);
+
         //Afficher tous les employés de l'entreprise 
         System.out.println(entreprise);
-        
+
         //Afficher les salaires de chaque employé
         System.out.println("Salaire de l'employé matricule " + r1.getMatricule() + " : " + r1.calculSalaire() + "€");
         System.out.println("Salaire de l'employé matricule" + r2.getMatricule() + " : " + r2.calculSalaire() + "€");
+        System.out.println("Salaire de l'employé matricule" + r3.getMatricule() + " : " + r3.calculSalaire() + "€");
+        System.out.println("Salaire de l'employé matricule" + r4.getMatricule() + " : " + r4.calculSalaire() + "€");
         System.out.println("Salaire de l'employé matricule" + c1.getMatricule() + " : " + c1.calculSalaire() + "€");
         System.out.println("Salaire de l'employé matricule" + c2.getMatricule() + " : " + c2.calculSalaire() + "€");
         System.out.println("Salaire de l'employé matricule" + e1.getMatricule() + " : " + e1.calculSalaire() + "€");
@@ -55,26 +67,42 @@ public class LogicielGestion {
         System.out.println("Salaire de l'employé matricule" + e4.getMatricule() + " : " + e4.calculSalaire() + "€");
         System.out.println("Salaire de l'employé matricule" + e5.getMatricule() + " : " + e5.calculSalaire() + "€");
         System.out.println("Salaire de l'employé matricule" + e6.getMatricule() + " : " + e6.calculSalaire() + "€");
+        System.out.println("Salaire de l'employé matricule" + e7.getMatricule() + " : " + e7.calculSalaire() + "€");
+        System.out.println("Salaire de l'employé matricule" + e8.getMatricule() + " : " + e8.calculSalaire() + "€");
+        System.out.println("Salaire de l'employé matricule" + e9.getMatricule() + " : " + e9.calculSalaire() + "€");
+
+        //Ajouter des subordonnés aux responsables 
+        r1.ajouterSubordonne(e6);
+        r1.ajouterSubordonne(e5);
+        r1.ajouterSubordonne(e4);
+        r1.ajouterSubordonne(c2);
+        r2.ajouterSubordonne(e3);
+        r2.ajouterSubordonne(e2);
+        r2.ajouterSubordonne(e1);
+        r2.ajouterSubordonne(c1);
+        r1.ajouterSubordonne(r3);
+        r3.ajouterSubordonne(e8);
+        r3.ajouterSubordonne(e7);
+        r1.ajouterSubordonne(r4);
+        r4.ajouterSubordonne(e9);
+
+//        //Afficher hiérarchie directement inférieure d'un responsable 
+//        r1.afficherHierarchieDirecte();
+//        r2.afficherHierarchieDirecte();
+//        r3.afficherHierarchieDirecte();
+//
+//        //Afficher hiérarchie inférieure d'un responsble 
+//        r1.afficherHierarchie();
+//
+//        //Afficher le salaire d'une branche de la hiérarchie 
+//        r1.afficherSalaireHierarchieDirecte();
+
+        //Salaire de toute l'entreprise
+        entreprise.afficherSalaireEntreprise();
         
-        
-//        
-//        
-//        EmployesEntreprise entreprise = new EmployesEntreprise();
-//        
-//        entreprise.ajouterEmploye(new Responsable("Biffi", "Emma", 1, 150));
-//        entreprise.ajouterEmploye(new Responsable("Lacoste", "Thomas", 2, 150));
-//        entreprise.ajouterEmploye(new Commercial("Cazenave", "Sara", 3, 100, 10));
-//        entreprise.ajouterEmploye(new Commercial("Freecs", "Gon", 4, 100, 10));
-//        entreprise.ajouterEmploye(new EmployeDeBase("Uchiha", "Sasuke", 5, 56));
-//        entreprise.ajouterEmploye(new EmployeDeBase("Elric", "Alphonse", 6, 56));
-//        entreprise.ajouterEmploye(new EmployeDeBase("Ackerman", "Levi", 7, 56));
-//        entreprise.ajouterEmploye(new EmployeDeBase("Hyuga", "Hinata", 8, 56));
-//        entreprise.ajouterEmploye(new EmployeDeBase("Organa", "Leia", 9, 56));
-//        entreprise.ajouterEmploye(new EmployeDeBase("Croft", "Lara", 10, 56));
-//        
-//        System.out.println(entreprise);
-        
-        //Ajouter les employés sous les ordres 
+        //Salaire par branche de hiérarchie
+        r1.afficherSalaireHierarchieDirecte();
+
     }
-    
+
 }
