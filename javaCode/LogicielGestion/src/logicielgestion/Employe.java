@@ -38,16 +38,16 @@ public abstract class Employe implements Payable, Serializable {
     //affichage de l'employé  
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", matricule : " + matricule + ", indice salarial : " + indiceSalarial ;
+        return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", matricule : " + matricule + ", indice salarial : " + indiceSalarial;
         //Ajouter le salaire
 
     }
-    
+
     @Override
-    public double calculSalaire(){
-        return this.indiceSalarial*12;
+    public double calculSalaire() {
+        return this.indiceSalarial * 12;
     }
-    
+
     //GENERATION DE HASH CODE ET EQUALS
     @Override
     public int hashCode() {
@@ -58,17 +58,16 @@ public abstract class Employe implements Payable, Serializable {
         hash = 23 * hash + this.indiceSalarial;
         return hash;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
-        
+
         final Employe other = (Employe) obj;
         if (this.matricule != other.matricule) {
             return false;
         }
         return true;
     }
-    
 
     //GETTERS 
     public String getNom() {
@@ -107,23 +106,18 @@ public abstract class Employe implements Payable, Serializable {
      * @param filePath Le chemin du fichier de sauvegarde
      * @throws IOException
      */
-   
-    public String getTexteASauver(){
-        return nom + "|" + prenom + "|" + matricule + "|" + indiceSalarial ;
-    }
-    
-    public void sauverTexte(String EMPLOYES) throws IOException {
+    public void sauverTexte(String filePath) throws IOException {
         /* Un flux textuel en écriture vers le fichier passé en paramètre
          * Le booléen en second paramètre indique que les données sont ajoutées
          * à la fin du fichier
          */
-        FileWriter fw = new FileWriter(EMPLOYES, true);
+        FileWriter fw = new FileWriter(filePath, true);
         // Pour chaque attribut de mon instance je l'écris dans le fichier
         fw.write(this.getTexteASauver());
         fw.write(System.lineSeparator());
         fw.close();
     }
-    
+
     /**
      * Méthode de classe permettant de lire et retourner un objet Personne dans
      * la String passée en paramètre.
@@ -141,7 +135,11 @@ public abstract class Employe implements Payable, Serializable {
         String sIndiceSalarial = token.nextToken();
         int matricule = Integer.parseInt(sMatricule);
         int indiceSalarial = Integer.parseInt(sIndiceSalarial);
-        return new Employe(nom, prenom, matricule, indiceSalarial) {};
+        return new Employe(nom, prenom, matricule, indiceSalarial) {
+        };
     }
 
+    public String getTexteASauver() {
+        return nom + "|" + prenom + "|" + matricule + "|" + indiceSalarial;
+    }
 }

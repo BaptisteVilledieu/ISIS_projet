@@ -31,7 +31,7 @@ public class Commercial extends Employe {
     //Texte à sauvegarder 
     @Override
     public String getTexteASauver(){
-        return super.getTexteASauver() + "|" + volume ;
+        return super.getTexteASauver() + "|" + volume  + "\n" ;
     }
     
     //Getter et Setter de volume 

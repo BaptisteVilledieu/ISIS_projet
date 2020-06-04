@@ -18,7 +18,7 @@ public class LogicielGestion {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         //Sauvegarde 
         String binaryFilePath = "employesTest.dat";
@@ -43,7 +43,7 @@ public class LogicielGestion {
 
         //Création de l'entreprise 
         Entreprise entreprise = new Entreprise();
-
+        
         entreprise.ajouterEmploye(r1);
         entreprise.ajouterEmploye(r2);
         entreprise.ajouterEmploye(r3);
@@ -105,7 +105,7 @@ public class LogicielGestion {
         //r4.afficherHierarchie();
         
         //Afficher hiérarchie complète de l'entreprise
-        //entreprise.afficherHierarchieComplete();
+        entreprise.afficherHierarchieComplete();
         
         //Afficher le salaire d'une branche de la hiérarchie 
         //Il faut mettre (0) pour initialiser la méthode avec un salaire = 0
@@ -118,39 +118,41 @@ public class LogicielGestion {
         
         //Afficher le salaire de toute l'entreprise
         //entreprise.afficherSalaireEntreprise();
-//        
-//        //Sauvegarde en binaire 
-//        try {
-//            entreprise.sauver(binaryFilePath);
-//            System.out.println("Entreprise sauvegardée en binaire dans le fichier" + binaryFilePath);
-//        } catch (IOException ex) {
-//            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        //Lecture en binaire 
-//        try {
-//            Entreprise lue = Entreprise.lire(binaryFilePath);
-//            System.out.println("Voiture lue en binaire = " + lue);
-//        } catch (IOException | ClassNotFoundException ex){
-//            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        //Sauvegarde en texte 
-//        try {
-//            entreprise.sauverTexte(textFilePath);
-//            System.out.println("Entreprise sauvegardée en texte dans le fichier " + textFilePath);
-//        } catch (IOException ex) {
-//            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        //Lecture en texte 
-//        Entreprise lue; 
-//        try {
-//            lue = Entreprise.lireTexte(textFilePath);
-//            System.out.println("Voiture lue en texte = " + lue);
-//        } catch (IOException ex) {
-//            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        
+        //Sauvegarde en binaire 
+        try {
+            entreprise.sauver(binaryFilePath);
+            System.out.println("Entreprise sauvegardée en binaire dans le fichier" + binaryFilePath);
+        } catch (IOException ex) {
+            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //Lecture en binaire 
+        try {
+            Entreprise lue = Entreprise.lire(binaryFilePath);
+            System.out.println("Entreprise lue en binaire = " + lue);
+        } catch (IOException | ClassNotFoundException ex){
+            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //Sauvegarde en texte 
+        try {
+            entreprise.sauverTexte(textFilePath);
+            System.out.println("Entreprise sauvegardée en texte dans le fichier " + textFilePath);
+        } catch (IOException ex) {
+            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+//        entreprise.lireTexte(textFilePath);
+         
+        //Lecture en texte 
+        Entreprise lue; 
+        try {
+            lue = Entreprise.lireTexte(textFilePath);
+            System.out.println("Entreprise lue en texte = " + lue);
+        } catch (IOException ex) {
+            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
