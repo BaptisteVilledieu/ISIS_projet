@@ -22,8 +22,6 @@ public class EmployeDeBase extends Employes {
         return super.calculSalaire();
     }
 
-    //Texte à sauvegarder
-    public String getTexteASauver(){
-        return super.getTexteASauver() ;
-    }
+    //Texte à sauvegarder (hérite de Employes donc inutile de la redéfinir)
+    
 }

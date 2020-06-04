@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  *
  * @author cecil
  */
-public class Employes implements Payable, Serializable {
+public abstract class Employes implements Payable, Serializable {
 
     //ATTRIBUTS
     private String nom;
@@ -141,7 +141,7 @@ public class Employes implements Payable, Serializable {
         String sIndiceSalarial = token.nextToken();
         int matricule = Integer.parseInt(sMatricule);
         int indiceSalarial = Integer.parseInt(sIndiceSalarial);
-        return new Employes(nom, prenom, matricule, indiceSalarial);
+        return new Employes(nom, prenom, matricule, indiceSalarial) {};
     }
 
 }

@@ -32,9 +32,9 @@ public class Responsable extends Employes {
     public void ajouterSubordonne(Employes e) {
         lesSubordonnes.add(e);
     }
-    
+
     //Supprimer des subordonnés 
-    public void supprimerSubordonne(Employes e){
+    public void supprimerSubordonne(Employes e) {
         lesSubordonnes.remove(e);
     }
 
@@ -57,31 +57,39 @@ public class Responsable extends Employes {
 
         }
     }
-//    
-//    //Afficher le salaire de la hiérarchie (double)
-//    public double afficherSalaireHierarchie() {
-//        return 1;
-//    }
-//    
+
     //Afficher le salaire d'une branche de la hiérarchie (donc de la hiérarchie inférieure directe d'un responsable)
     //(Le salaire du responsable de la hiérarchie est compris dedans) 
-    public void afficherSalaireHierarchieDirecte() {
-        double salaire = 0 ;
+    public double afficherSalaireHierarchieDirecte(double sal) {
+        double salaire = sal + this.calculSalaire();
         for (Employes e : this.lesSubordonnes) {
             salaire = salaire + e.calculSalaire();
         }
-        salaire = salaire + this.calculSalaire();
-        System.out.println("Salaire d'une branche de la hiérarchie : " + salaire + "€");
+        System.out.println("Salaire d'une branche de la hiérarchie inférieure directe de " + this.getNom() + " matricule " + this.getMatricule() + " : " + salaire + "€");
+        return salaire;
+    }
+
+    public double afficherSalaireHierarchie(double sal) {
+        double salaire = sal + this.calculSalaire();
+        for (Employes e : this.lesSubordonnes) {
+            if (e instanceof Responsable) {
+                salaire = salaire + ((Responsable) e).afficherSalaireHierarchieDirecte(0);
+            } else {
+                salaire = salaire + e.calculSalaire();
+            }
+        }
+        System.out.println("Salaire d'une branche de la hiérarchie inférieure de " + this.getNom() + " matricule " + this.getMatricule() + " : " + salaire + "€");
+        return salaire;
     }
 
     //Getter
     public HashSet<Employes> getLesSubordonnes() {
         return lesSubordonnes;
     }
-    
+
     //Texte à sauvegarder (string)
     public String getTexteASauver() {
-        return super.getTexteASauver() + "|" + lesSubordonnes ;
+        return super.getTexteASauver() + "|" + lesSubordonnes;
     }
-    
+
 }

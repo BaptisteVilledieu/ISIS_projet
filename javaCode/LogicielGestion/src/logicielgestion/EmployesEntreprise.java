@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -21,11 +22,11 @@ import java.util.Scanner;
  * @author cecil
  */
 public class EmployesEntreprise extends HashSet<Employes> implements Serializable {
-
+    
     //ATTRIBUT
     private HashSet<Employes> lesEmployes;
 
-//  //CONSTRUCTEUR 
+    //CONSTRUCTEUR 
     public EmployesEntreprise() {
         lesEmployes = new HashSet<>();
     }
@@ -35,27 +36,17 @@ public class EmployesEntreprise extends HashSet<Employes> implements Serializabl
     public String toString() {
         return "Employés de l'entreprise : {" + lesEmployes + "}";
     }
- 
+   
     //Ajouter les employés 
     public void ajouterEmploye(Employes e){
         lesEmployes.add(e);
     }
     
-    //Supprimer les employés 
+        //Supprimer les employés 
     public void supprimerEmploye(Employes e){
         lesEmployes.remove(e);
     }
-    
-    //Getter
-    public HashSet<Employes> getLesEmployes() {
-        return lesEmployes;
-    }
-    
-    //Setter 
-    public void setLesEmployes(HashSet<Employes> lesEmployes) {
-        this.lesEmployes = lesEmployes;
-    }
-   
+
     //Calculer les salaires de l'entreprise (méthode récursive)
     public void afficherSalaireEntreprise () {
         double salaire = 0;

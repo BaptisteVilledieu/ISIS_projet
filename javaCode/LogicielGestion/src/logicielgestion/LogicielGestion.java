@@ -19,7 +19,7 @@ public class LogicielGestion {
         Responsable r1 = new Responsable("Biffi", "Emma", 1, 750);
         Responsable r2 = new Responsable("Lacoste", "Thomas", 2, 750);
         Responsable r3 = new Responsable("Palo", "Lucile", 11, 730);
-        Responsable r4 = new Responsable("Palo", "Lucile", 14, 700);
+        Responsable r4 = new Responsable("Vuire", "Melanie", 14, 700);
         Commercial c1 = new Commercial("Cazenave", "Sara", 3, 480, 80);
         Commercial c2 = new Commercial("Freecs", "Gon", 4, 480, 80);
         EmployeDeBase e1 = new EmployeDeBase("Uchiha", "Sasuke", 5, 420);
@@ -85,26 +85,30 @@ public class LogicielGestion {
         r3.ajouterSubordonne(e7);
         r1.ajouterSubordonne(r4);
         r4.ajouterSubordonne(e9);
+        r4.ajouterSubordonne(r3);
 
-//        //Afficher hiérarchie directement inférieure d'un responsable 
-//        r1.afficherHierarchieDirecte();
-//        r2.afficherHierarchieDirecte();
-//        r3.afficherHierarchieDirecte();
-//
-//        //Afficher hiérarchie inférieure d'un responsble 
-//        r1.afficherHierarchie();
+        //Afficher hiérarchie directement inférieure d'un responsable 
+        //r1.afficherHierarchieDirecte();
+        //r4.afficherHierarchieDirecte();
+
+        //Afficher hiérarchie inférieure d'un responsble 
+        //r1.afficherHierarchie();
+        //r4.afficherHierarchie();
 
         //Afficher hiérarchie complète de l'entreprise
-        entreprise.afficherHierarchieComplete();
-//
-//        //Afficher le salaire d'une branche de la hiérarchie 
-//        r1.afficherSalaireHierarchieDirecte();
-//
-//        //Salaire de toute l'entreprise
-//        entreprise.afficherSalaireEntreprise();
-//        
-//        //Salaire par branche de hiérarchie
-//        r1.afficherSalaireHierarchieDirecte();
+        //entreprise.afficherHierarchieComplete();
+
+        //Afficher le salaire d'une branche de la hiérarchie 
+        //Il faut mettre (0) pour initialiser la méthode avec un salaire = 0
+        //r1.afficherSalaireHierarchieDirecte(0);
+        //r4.afficherSalaireHierarchieDirecte(0);
+            
+        //Afficher le salaire d'une branche de la hiérarchie inférieure 
+        //Il faut mettre (0) pour initialiser la méthode avec un salaire = 0
+        //r4.afficherSalaireHierarchie(0);
+        
+        //Afficher le salaire de toute l'entreprise
+        //entreprise.afficherSalaireEntreprise();
 
         
     }
