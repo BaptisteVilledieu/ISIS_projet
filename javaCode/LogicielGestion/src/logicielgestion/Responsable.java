@@ -11,10 +11,10 @@ import java.util.HashSet;
  *
  * @author cecil
  */
-public class Responsable extends Employes {
+public class Responsable extends Employe {
 
     //Nouvel attribut
-    private final HashSet<Employes> lesSubordonnes;
+    private final HashSet<Employe> lesSubordonnes;
 
     //CONSTRUCTEUR 
     public Responsable(String n, String p, int mat, int indice) {
@@ -29,19 +29,19 @@ public class Responsable extends Employes {
     }
 
     //Ajouter des subordonnés (void)
-    public void ajouterSubordonne(Employes e) {
+    public void ajouterSubordonne(Employe e) {
         lesSubordonnes.add(e);
     }
 
     //Supprimer des subordonnés 
-    public void supprimerSubordonne(Employes e) {
+    public void supprimerSubordonne(Employe e) {
         lesSubordonnes.remove(e);
     }
 
     //Afficher la hiérarchie inférieure directe d'un responsable (void)
     public void afficherHierarchieDirecte() {
         System.out.println("Hierarchie inférieure directe de " + this.getNom() + ", matricule : " + this.getMatricule());
-        for (Employes e : this.lesSubordonnes) {
+        for (Employe e : this.lesSubordonnes) {
             System.out.println(e);
         }
     }
@@ -49,7 +49,7 @@ public class Responsable extends Employes {
     //Afficher la hiérarchie inférieure d'un responsable  (void)
     public void afficherHierarchie() {
         System.out.println("Hierarchie inférieure de " + this.getNom() + ", matricule : " + this.getMatricule());
-        for (Employes e : this.lesSubordonnes) {
+        for (Employe e : this.lesSubordonnes) {
             System.out.println(e);
             if (e instanceof Responsable) {
                 System.out.println("est responsable de : " + ((Responsable) e).lesSubordonnes);
@@ -62,7 +62,7 @@ public class Responsable extends Employes {
     //(Le salaire du responsable de la hiérarchie est compris dedans) 
     public double afficherSalaireHierarchieDirecte(double sal) {
         double salaire = sal + this.calculSalaire();
-        for (Employes e : this.lesSubordonnes) {
+        for (Employe e : this.lesSubordonnes) {
             salaire = salaire + e.calculSalaire();
         }
         System.out.println("Salaire d'une branche de la hiérarchie inférieure directe de " + this.getNom() + " matricule " + this.getMatricule() + " : " + salaire + "€");
@@ -71,7 +71,7 @@ public class Responsable extends Employes {
 
     public double afficherSalaireHierarchie(double sal) {
         double salaire = sal + this.calculSalaire();
-        for (Employes e : this.lesSubordonnes) {
+        for (Employe e : this.lesSubordonnes) {
             if (e instanceof Responsable) {
                 salaire = salaire + ((Responsable) e).afficherSalaireHierarchieDirecte(0);
             } else {
@@ -83,7 +83,7 @@ public class Responsable extends Employes {
     }
 
     //Getter
-    public HashSet<Employes> getLesSubordonnes() {
+    public HashSet<Employe> getLesSubordonnes() {
         return lesSubordonnes;
     }
 

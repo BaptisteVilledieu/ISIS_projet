@@ -9,7 +9,7 @@ package logicielgestion;
  *
  * @author cecil
  */
-public class Commercial extends Employes {
+public class Commercial extends Employe {
     //volume mensuel
     private double volume;
     

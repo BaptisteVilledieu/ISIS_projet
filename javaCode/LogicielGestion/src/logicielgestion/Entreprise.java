@@ -21,13 +21,13 @@ import java.util.Scanner;
  *
  * @author cecil
  */
-public class EmployesEntreprise extends HashSet<Employes> implements Serializable {
+public class Entreprise extends HashSet<Employe> implements Serializable {
     
     //ATTRIBUT
-    private HashSet<Employes> lesEmployes;
+    private HashSet<Employe> lesEmployes;
 
     //CONSTRUCTEUR 
-    public EmployesEntreprise() {
+    public Entreprise() {
         lesEmployes = new HashSet<>();
     }
 
@@ -38,19 +38,19 @@ public class EmployesEntreprise extends HashSet<Employes> implements Serializabl
     }
    
     //Ajouter les employés 
-    public void ajouterEmploye(Employes e){
+    public void ajouterEmploye(Employe e){
         lesEmployes.add(e);
     }
     
         //Supprimer les employés 
-    public void supprimerEmploye(Employes e){
+    public void supprimerEmploye(Employe e){
         lesEmployes.remove(e);
     }
 
     //Calculer les salaires de l'entreprise (méthode récursive)
     public void afficherSalaireEntreprise () {
         double salaire = 0;
-        for (Employes e : this.lesEmployes){
+        for (Employe e : this.lesEmployes){
             salaire = salaire + e.calculSalaire();  
         }
         System.out.println("Salaire de l'entreprise : " + salaire + "€");
@@ -58,7 +58,7 @@ public class EmployesEntreprise extends HashSet<Employes> implements Serializabl
     
     //Affichage de la hiérarchie complète de l'entreprise 
     public void afficherHierarchieComplete() {
-        for (Employes e : this.lesEmployes) {          
+        for (Employe e : this.lesEmployes) {          
             if (e instanceof Responsable){
                 ((Responsable) e).afficherHierarchieDirecte();
             }

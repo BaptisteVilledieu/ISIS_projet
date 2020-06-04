@@ -4,7 +4,7 @@ package logicielgestion;
  *
  * @author cecil
  */
-public class EmployeDeBase extends Employes {
+public class EmployeDeBase extends Employe {
     
     //CONSTRUCTEUR 
     public EmployeDeBase(String n, String p, int mat,int indice) {

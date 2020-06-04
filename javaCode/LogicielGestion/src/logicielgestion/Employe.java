@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  *
  * @author cecil
  */
-public abstract class Employes implements Payable, Serializable {
+public abstract class Employe implements Payable, Serializable {
 
     //ATTRIBUTS
     private String nom;
@@ -28,7 +28,7 @@ public abstract class Employes implements Payable, Serializable {
     protected final int indiceSalarial;
 
     //CONSTRUCTEUR 
-    public Employes(String n, String p, int mat, int indice) /*throws EmployesException*/ {
+    public Employe(String n, String p, int mat, int indice) /*throws EmployeException*/ {
         this.nom = n;
         this.prenom = p;
         this.matricule = mat;
@@ -62,7 +62,7 @@ public abstract class Employes implements Payable, Serializable {
     @Override
     public boolean equals(Object obj) {
         
-        final Employes other = (Employes) obj;
+        final Employe other = (Employe) obj;
         if (this.matricule != other.matricule) {
             return false;
         }
@@ -131,7 +131,7 @@ public abstract class Employes implements Payable, Serializable {
      * @param content La String à parcourir
      * @return L'objet Personne lu dans la String content.
      */
-    public static Employes lireTexte(String content) {
+    public static Employe lireTexte(String content) {
         Scanner sc = new Scanner(content);
         String ligne = sc.next();
         StringTokenizer token = new StringTokenizer(ligne, "|");
@@ -141,7 +141,7 @@ public abstract class Employes implements Payable, Serializable {
         String sIndiceSalarial = token.nextToken();
         int matricule = Integer.parseInt(sMatricule);
         int indiceSalarial = Integer.parseInt(sIndiceSalarial);
-        return new Employes(nom, prenom, matricule, indiceSalarial) {};
+        return new Employe(nom, prenom, matricule, indiceSalarial) {};
     }
 
 }

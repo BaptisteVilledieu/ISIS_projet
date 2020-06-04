@@ -5,6 +5,10 @@
  */
 package logicielgestion;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author cecil
@@ -15,6 +19,11 @@ public class LogicielGestion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
+        //Sauvegarde 
+        String binaryFilePath = "employesTest.dat";
+        String textFilePath = "employesTest.txt";
+
         //Création de tous les employés de l'entreprise 
         Responsable r1 = new Responsable("Biffi", "Emma", 1, 750);
         Responsable r2 = new Responsable("Lacoste", "Thomas", 2, 750);
@@ -33,7 +42,7 @@ public class LogicielGestion {
         EmployeDeBase e9 = new EmployeDeBase("Zert", "Florian", 15, 420);
 
         //Création de l'entreprise 
-        EmployesEntreprise entreprise = new EmployesEntreprise();
+        Entreprise entreprise = new Entreprise();
 
         entreprise.ajouterEmploye(r1);
         entreprise.ajouterEmploye(r2);
@@ -52,7 +61,7 @@ public class LogicielGestion {
         entreprise.ajouterEmploye(e9);
 
         //Afficher tous les employés de l'entreprise 
-        System.out.println(entreprise);
+        System.out.println("Entreprise à sauvegarder : " + "\n" + entreprise);
 
         //Afficher les salaires de chaque employé
         System.out.println("Salaire de l'employé matricule " + r1.getMatricule() + " : " + r1.calculSalaire() + "€");
@@ -90,27 +99,58 @@ public class LogicielGestion {
         //Afficher hiérarchie directement inférieure d'un responsable 
         //r1.afficherHierarchieDirecte();
         //r4.afficherHierarchieDirecte();
-
+        
         //Afficher hiérarchie inférieure d'un responsble 
         //r1.afficherHierarchie();
         //r4.afficherHierarchie();
-
+        
         //Afficher hiérarchie complète de l'entreprise
         //entreprise.afficherHierarchieComplete();
-
+        
         //Afficher le salaire d'une branche de la hiérarchie 
         //Il faut mettre (0) pour initialiser la méthode avec un salaire = 0
         //r1.afficherSalaireHierarchieDirecte(0);
         //r4.afficherSalaireHierarchieDirecte(0);
-            
-        //Afficher le salaire d'une branche de la hiérarchie inférieure 
+        
+        //Afficher le salaire d'une branche de la hiérarchie inférieure
         //Il faut mettre (0) pour initialiser la méthode avec un salaire = 0
         //r4.afficherSalaireHierarchie(0);
         
         //Afficher le salaire de toute l'entreprise
         //entreprise.afficherSalaireEntreprise();
-
-        
+//        
+//        //Sauvegarde en binaire 
+//        try {
+//            entreprise.sauver(binaryFilePath);
+//            System.out.println("Entreprise sauvegardée en binaire dans le fichier" + binaryFilePath);
+//        } catch (IOException ex) {
+//            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        //Lecture en binaire 
+//        try {
+//            Entreprise lue = Entreprise.lire(binaryFilePath);
+//            System.out.println("Voiture lue en binaire = " + lue);
+//        } catch (IOException | ClassNotFoundException ex){
+//            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        //Sauvegarde en texte 
+//        try {
+//            entreprise.sauverTexte(textFilePath);
+//            System.out.println("Entreprise sauvegardée en texte dans le fichier " + textFilePath);
+//        } catch (IOException ex) {
+//            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        //Lecture en texte 
+//        Entreprise lue; 
+//        try {
+//            lue = Entreprise.lireTexte(textFilePath);
+//            System.out.println("Voiture lue en texte = " + lue);
+//        } catch (IOException ex) {
+//            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
 }
