@@ -5,21 +5,20 @@
  */
 package logicielgestion;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-import java.util.logging.Logger;
 
 /**
  *
  * @author cecil
  */
 public abstract class Employe implements Payable, Serializable {
+    //La classe est abstraite pour forcer l'utilisateur à instancier la classe EmployeDeBase
+    //et non la classe Employe (qui correspond exactement à un EmployeDeBase)
 
     //ATTRIBUTS
     private String nom;
@@ -42,7 +41,8 @@ public abstract class Employe implements Payable, Serializable {
         //Ajouter le salaire
 
     }
-
+    
+    //Methode de calcul du salaire 
     @Override
     public double calculSalaire() {
         return this.indiceSalarial * 12;
@@ -61,7 +61,6 @@ public abstract class Employe implements Payable, Serializable {
 
     @Override
     public boolean equals(Object obj) {
-
         final Employe other = (Employe) obj;
         if (this.matricule != other.matricule) {
             return false;
@@ -99,18 +98,8 @@ public abstract class Employe implements Payable, Serializable {
         this.matricule = matricule;
     }
 
-    /**
-     * Méthode de sauvegarde de l'instance dans le fichier dont le chemin est
-     * passé en paramètre.
-     *
-     * @param filePath Le chemin du fichier de sauvegarde
-     * @throws IOException
-     */
+    //Sauvegarder l'instance 
     public void sauverTexte(String filePath) throws IOException {
-        /* Un flux textuel en écriture vers le fichier passé en paramètre
-         * Le booléen en second paramètre indique que les données sont ajoutées
-         * à la fin du fichier
-         */
         FileWriter fw = new FileWriter(filePath, true);
         // Pour chaque attribut de mon instance je l'écris dans le fichier
         fw.write(this.getTexteASauver());
@@ -118,13 +107,7 @@ public abstract class Employe implements Payable, Serializable {
         fw.close();
     }
 
-    /**
-     * Méthode de classe permettant de lire et retourner un objet Personne dans
-     * la String passée en paramètre.
-     *
-     * @param content La String à parcourir
-     * @return L'objet Personne lu dans la String content.
-     */
+    //Lire et retourner un objet Personne
     public static Employe lireTexte(String content) {
         Scanner sc = new Scanner(content);
         String ligne = sc.next();
@@ -139,7 +122,8 @@ public abstract class Employe implements Payable, Serializable {
         };
     }
 
+    //Texte à sauvegarder 
     public String getTexteASauver() {
-        return nom + "|" + prenom + "|" + matricule + "|" + indiceSalarial;
+        return this.getClass().getSimpleName() + " : " + nom + "|" + prenom + "|" + matricule + "|" + indiceSalarial;
     }
 }

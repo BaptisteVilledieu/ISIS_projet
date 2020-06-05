@@ -22,9 +22,9 @@ public class EmployeDeBase extends Employe {
         return super.calculSalaire();
     }
 
-    //Texte à sauvegarder (hérite de Employes donc inutile de la redéfinir)
+    //Texte à sauvegarder
     @Override
     public String getTexteASauver() {
-        return super.getTexteASauver() + "\n";
-    }
+        return super.getTexteASauver() + "\n" ;
+   }
 }

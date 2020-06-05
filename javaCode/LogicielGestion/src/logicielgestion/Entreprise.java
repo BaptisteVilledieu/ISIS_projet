@@ -5,7 +5,6 @@
  */
 package logicielgestion;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -15,7 +14,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.nio.file.Paths;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -68,20 +66,7 @@ public class Entreprise extends HashSet<Employe> implements Serializable {
         }
     }
 
-    //Sauvegarde de l'entreprise 
-    //Lire la sauvegarde de l'entreprise 
-    //on va utiliser "if( Employes instance of 'Responsable'){}..."pour savoir si c'est un responsable 
-
-    /*
-    Méthodes d'instance
-     */
-    /**
-     * Méthode de sauvegarde de l'instance dans le fichier dont le chemin est
-     * passé en paramètre.
-     *
-     * @param filePath Le chemin du fichier de sauvegarde
-     * @throws java.io.FileNotFoundException
-     */
+    //Sauvegarde de l'instance dans le fichier
     public void sauver(String filePath)
             throws FileNotFoundException, IOException {
         // Un flux binaire en écriture vers le fichier passé en paramètre
@@ -95,15 +80,7 @@ public class Entreprise extends HashSet<Employe> implements Serializable {
         oos.close();
     }
 
-    /**
-     * Méthode de classe permettant de lire et retourner un objet Voiture dans
-     * le fichier dont le chemin est passé en paramètre.
-     *
-     * @param filePath Le chemin du fichier lu
-     * @return L'objet Voiture lu dans le fichier, ou null s'il n'y en a pas.
-     * @throws java.io.FileNotFoundException
-     * @throws java.lang.ClassNotFoundException
-     */
+    //Lire et retourner l'objet Entreprise 
     public static Entreprise lire(String filePath)
             throws FileNotFoundException, IOException, ClassNotFoundException {
         // Un flux binaire en lecture sur le fichier passé en paramètre
@@ -117,13 +94,7 @@ public class Entreprise extends HashSet<Employe> implements Serializable {
         return obj;
     }
 
-    /**
-     * Méthode de sauvegarde de l'instance dans le fichier dont le chemin est
-     * passé en paramètre.
-     *
-     * @param filePath Le chemin du fichier de sauvegarde
-     * @throws IOException
-     */
+    //Sauvegarder l'instance 
     public void sauverTexte(String filePath) throws IOException {
         FileWriter fw = new FileWriter(filePath, true);
         //fw.write(System.lineSeparator());
@@ -136,13 +107,7 @@ public class Entreprise extends HashSet<Employe> implements Serializable {
         fw.close();
     }
 
-    /**
-     * Méthode de classe permettant de lire et retourner un objet Voiture dans
-     * le fichier texte dont le chemin est passé en paramètre.
-     *
-     * @param filePath Le chemin du fichier lu
-     * @return L'objet Voiture lu dans le fichier.
-     */
+    //Lire et retourner l'objet Entreprise 
     public static Entreprise lireTexte(String filePath) throws IOException {
         Scanner sc = new Scanner(Paths.get(filePath));
         String ligne = sc.next();

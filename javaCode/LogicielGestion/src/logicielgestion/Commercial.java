@@ -21,7 +21,7 @@ public class Commercial extends Employe {
     
     @Override
     public String toString(){
-        return super.toString()+" , " + volume  + "\n";
+        return super.toString()+" , " + volume ;
     }
     @Override
     public double calculSalaire(){
@@ -31,11 +31,10 @@ public class Commercial extends Employe {
     //Texte à sauvegarder 
     @Override
     public String getTexteASauver(){
-        return super.getTexteASauver() + "|" + volume  + "\n" ;
+        return super.getTexteASauver() + "|" + volume + "\n" ;
     }
     
     //Getter et Setter de volume 
-
     public double getVolume() {
         return volume;
     }

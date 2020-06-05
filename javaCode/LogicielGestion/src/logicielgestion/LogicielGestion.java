@@ -134,25 +134,6 @@ public class LogicielGestion {
         } catch (IOException | ClassNotFoundException ex){
             Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        //Sauvegarde en texte 
-        try {
-            entreprise.sauverTexte(textFilePath);
-            System.out.println("Entreprise sauvegardée en texte dans le fichier " + textFilePath);
-        } catch (IOException ex) {
-            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-//        entreprise.lireTexte(textFilePath);
-         
-        //Lecture en texte 
-        Entreprise lue; 
-        try {
-            lue = Entreprise.lireTexte(textFilePath);
-            System.out.println("Entreprise lue en texte = " + lue);
-        } catch (IOException ex) {
-            Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
 }
