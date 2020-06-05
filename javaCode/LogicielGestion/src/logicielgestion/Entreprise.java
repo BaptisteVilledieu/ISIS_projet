@@ -24,34 +24,16 @@ import java.util.StringTokenizer;
  */
 public class Entreprise extends HashSet<Employe> implements Serializable {
 
-    //ATTRIBUT
-    private HashSet<Employe> lesEmployes;
-
-    //CONSTRUCTEUR 
-    public Entreprise() {
-        lesEmployes = new HashSet<>();
-    }
-
     //Afficher tous les employés de l'entreprise
     @Override
     public String toString() {
-        return "Employés de l'entreprise : {" + lesEmployes + "}";
-    }
-
-    //Ajouter les employés 
-    public void ajouterEmploye(Employe e) {
-        lesEmployes.add(e);
-    }
-
-    //Supprimer les employés 
-    public void supprimerEmploye(Employe e) {
-        lesEmployes.remove(e);
+        return "Employés de l'entreprise : {" + super.toString() + "}";
     }
 
     //Calculer les salaires de l'entreprise (méthode récursive)
     public void afficherSalaireEntreprise() {
         double salaire = 0;
-        for (Employe e : this.lesEmployes) {
+        for (Employe e : this) {
             salaire = salaire + e.calculSalaire();
         }
         System.out.println("Salaire de l'entreprise : " + salaire + "€");
@@ -59,7 +41,7 @@ public class Entreprise extends HashSet<Employe> implements Serializable {
 
     //Affichage de la hiérarchie complète de l'entreprise 
     public void afficherHierarchieComplete() {
-        for (Employe e : this.lesEmployes) {
+        for (Employe e : this) {
             if (e instanceof Responsable) {
                 ((Responsable) e).afficherHierarchieDirecte();
             }
@@ -75,6 +57,16 @@ public class Entreprise extends HashSet<Employe> implements Serializable {
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         // Ecriture de l'objet courant (this) dans le flux de traitement,
         // donc dans le fichier
+//        for (Employe e : this) {
+//            if (e.getClass().getSimpleName().equals("Responsable")) {
+//                Responsable r = (Responsable) e;
+//                oos.writeObject(e);
+//                for (Employe t : r.getLesSubordonnes()) {
+//                    oos.writeObject(t);
+//                }
+//            } else {
+//                oos.writeObject(e);
+//        }
         oos.writeObject(this);
         // Fermeture du flux (obligatoire)
         oos.close();
@@ -94,28 +86,36 @@ public class Entreprise extends HashSet<Employe> implements Serializable {
         return obj;
     }
 
-    //Sauvegarder l'instance 
-    public void sauverTexte(String filePath) throws IOException {
-        FileWriter fw = new FileWriter(filePath, true);
-        //fw.write(System.lineSeparator());
-        // Pour chaque attribut de mon instance je l'écris dans le fichier
-        for (Employe e : lesEmployes) {
-            fw.write(e.getTexteASauver());
-        }
-        // On insère un retour à la ligne
-        fw.write(System.lineSeparator());
-        fw.close();
-    }
-
-    //Lire et retourner l'objet Entreprise 
-    public static Entreprise lireTexte(String filePath) throws IOException {
-        Scanner sc = new Scanner(Paths.get(filePath));
-        String ligne = sc.next();
-        StringTokenizer token = new StringTokenizer(ligne);
-        HashSet<Employe> lesEmployes = new HashSet<>();
-        while (token.hasMoreElements()) {
-            lesEmployes.add(Employe.lireTexte(token.nextToken()));
-        }
-        return new Entreprise();
-    }
+//    //Sauvegarder l'instance 
+//    public void sauverTexte(String filePath) throws IOException {
+//        FileWriter fw = new FileWriter(filePath, true);
+//        fw.write(System.lineSeparator());
+//        // Pour chaque attribut de mon instance je l'écris dans le fichier
+//        for (Employe e : this) {
+//            if (e.getClass().getSimpleName().equals("Responsable")) {
+//                Responsable r = (Responsable) e;
+//                fw.write(e.toString());
+//                for (Employe t : r.getLesSubordonnes()) {
+//                    fw.write(t.toString());
+//                }
+//            } else {
+//                fw.write(e.toString());
+//            }
+//        }
+//        // On insère un retour à la ligne
+//        fw.write(System.lineSeparator());
+//        fw.close();
+//    }
+//
+//    //Lire et retourner l'objet Entreprise 
+//    public Entreprise lireTexte(String filePath) throws IOException {
+//        Scanner sc = new Scanner(Paths.get(filePath));
+//        String ligne = sc.next();
+//        StringTokenizer token = new StringTokenizer(ligne);
+//        HashSet<Employe> lesEmployes = new HashSet<>();
+//        while (token.hasMoreElements()) {
+//            lesEmployes.add(Employe.lireTexte(token.nextToken()));
+//        }
+//        return new Entreprise();
+//    }
 }

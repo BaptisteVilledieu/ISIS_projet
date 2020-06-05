@@ -21,8 +21,7 @@ public class LogicielGestion {
     public static void main(String[] args) throws IOException {
 
         //Sauvegarde 
-        String binaryFilePath = "employesTest.dat";
-        String textFilePath = "employesTest.txt";
+        String binaryFilePath = "SAUVEGARDES/Test2.dat";
 
         //Création de tous les employés de l'entreprise 
         Responsable r1 = new Responsable("Biffi", "Emma", 1, 750);
@@ -44,21 +43,21 @@ public class LogicielGestion {
         //Création de l'entreprise 
         Entreprise entreprise = new Entreprise();
         
-        entreprise.ajouterEmploye(r1);
-        entreprise.ajouterEmploye(r2);
-        entreprise.ajouterEmploye(r3);
-        entreprise.ajouterEmploye(r4);
-        entreprise.ajouterEmploye(c1);
-        entreprise.ajouterEmploye(c2);
-        entreprise.ajouterEmploye(e1);
-        entreprise.ajouterEmploye(e2);
-        entreprise.ajouterEmploye(e3);
-        entreprise.ajouterEmploye(e4);
-        entreprise.ajouterEmploye(e5);
-        entreprise.ajouterEmploye(e6);
-        entreprise.ajouterEmploye(e7);
-        entreprise.ajouterEmploye(e8);
-        entreprise.ajouterEmploye(e9);
+        entreprise.add(r1);
+        entreprise.add(r2);
+        entreprise.add(r3);
+        entreprise.add(r4);
+        entreprise.add(c1);
+        entreprise.add(c2);
+        entreprise.add(e1);
+        entreprise.add(e2);
+        entreprise.add(e3);
+        entreprise.add(e4);
+        entreprise.add(e5);
+        entreprise.add(e6);
+        entreprise.add(e7);
+        entreprise.add(e8);
+        entreprise.add(e9);
 
         //Afficher tous les employés de l'entreprise 
         System.out.println("Entreprise à sauvegarder : " + "\n" + entreprise);
@@ -122,7 +121,7 @@ public class LogicielGestion {
         //Sauvegarde en binaire 
         try {
             entreprise.sauver(binaryFilePath);
-            System.out.println("Entreprise sauvegardée en binaire dans le fichier" + binaryFilePath);
+            System.out.println("Entreprise sauvegardée en binaire dans le fichier " + binaryFilePath);
         } catch (IOException ex) {
             Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -130,7 +129,7 @@ public class LogicielGestion {
         //Lecture en binaire 
         try {
             Entreprise lue = Entreprise.lire(binaryFilePath);
-            System.out.println("Entreprise lue en binaire = " + lue);
+            System.out.println("Entreprise lue en binaire = " + "\n" + lue);
         } catch (IOException | ClassNotFoundException ex){
             Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
         }

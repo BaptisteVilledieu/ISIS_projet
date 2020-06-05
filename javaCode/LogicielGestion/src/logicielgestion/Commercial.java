@@ -21,18 +21,18 @@ public class Commercial extends Employe {
     
     @Override
     public String toString(){
-        return super.toString()+" , " + volume ;
+        return super.toString()+" , volume de vente : " + volume + "\n";
     }
     @Override
     public double calculSalaire(){
         return super.calculSalaire()+ volume/10; 
     }
 
-    //Texte à sauvegarder 
-    @Override
-    public String getTexteASauver(){
-        return super.getTexteASauver() + "|" + volume + "\n" ;
-    }
+//    //Texte à sauvegarder 
+//    @Override
+//    public String getTexteASauver(){
+//        return super.getTexteASauver() + "|" + volume + "\n" ;
+//    }
     
     //Getter et Setter de volume 
     public double getVolume() {

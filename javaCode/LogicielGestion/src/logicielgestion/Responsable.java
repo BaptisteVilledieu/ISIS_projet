@@ -87,9 +87,9 @@ public class Responsable extends Employe {
         return lesSubordonnes;
     }
 
-    //Texte à sauvegarder (string)
-    public String getTexteASauver() {
-        return super.getTexteASauver() + "|" + this.lesSubordonnes + "\n" ;
-    }
-
+//    //Texte à sauvegarder (string)
+//    public String getTexteASauver() {
+//        return super.getTexteASauver() + this.getLesSubordonnes() ;
+//    }
+    
 }

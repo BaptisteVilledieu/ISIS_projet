@@ -102,7 +102,7 @@ public abstract class Employe implements Payable, Serializable {
     public void sauverTexte(String filePath) throws IOException {
         FileWriter fw = new FileWriter(filePath, true);
         // Pour chaque attribut de mon instance je l'écris dans le fichier
-        fw.write(this.getTexteASauver());
+        fw.write(this.toString()); //fw.write(this.TexteASauver());
         fw.write(System.lineSeparator());
         fw.close();
     }
@@ -122,8 +122,8 @@ public abstract class Employe implements Payable, Serializable {
         };
     }
 
-    //Texte à sauvegarder 
-    public String getTexteASauver() {
-        return this.getClass().getSimpleName() + " : " + nom + "|" + prenom + "|" + matricule + "|" + indiceSalarial;
-    }
+//    //Texte à sauvegarder 
+//    public String getTexteASauver() {
+//        return this.getClass().getSimpleName() + " : " + nom + "|" + prenom + "|" + matricule + "|" + indiceSalarial;
+//    }
 }
