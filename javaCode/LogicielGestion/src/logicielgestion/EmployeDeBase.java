@@ -7,7 +7,7 @@ package logicielgestion;
 public class EmployeDeBase extends Employe {
 
     //CONSTRUCTEUR 
-    public EmployeDeBase(String n, String p, int mat, int indice) {
+    public EmployeDeBase(String n, String p, int mat, int indice) throws EmployeException {
         super(n, p, mat, indice);
     }
 
@@ -17,14 +17,7 @@ public class EmployeDeBase extends Employe {
         return super.toString() + "\n";
     }
 
-    //Calculer le salaire de l'employe
-    public double calculSalaire() {
-        return super.calculSalaire();
-    }
-
-//    //Texte à sauvegarder
-//    @Override
-//    public String getTexteASauver() {
-//        return super.getTexteASauver() + "\n" ;
-//   }
+    //Pas besoin de rédéfinir la méthode pour calculer le salaire, elle est
+    //directement héritée de la classe Employe
+    
 }

@@ -9,13 +9,13 @@ package logicielgestion;
  *
  * @author cecil
  */
-public class EmployesException extends Exception {
+public class EmployeException extends Exception {
 
     /**
      * Creates a new instance of <code>EmployesException</code> without detail
      * message.
      */
-    public EmployesException() {
+    public EmployeException() {
     }
 
     /**
@@ -24,7 +24,7 @@ public class EmployesException extends Exception {
      *
      * @param msg the detail message.
      */
-    public EmployesException(String msg) {
+    public EmployeException(String msg) {
         super(msg);
     }
 }

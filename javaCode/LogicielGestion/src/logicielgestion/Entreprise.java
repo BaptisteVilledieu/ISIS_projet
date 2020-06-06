@@ -8,21 +8,19 @@ package logicielgestion;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.nio.file.Paths;
 import java.util.HashSet;
-import java.util.Scanner;
-import java.util.StringTokenizer;
 
 /**
  *
  * @author cecil
  */
 public class Entreprise extends HashSet<Employe> implements Serializable {
+    //Cette classe hérite d'une HashSet<Employe>, nous n'avons donc pas besoin de 
+    //redéfinir les méthodes d'ajout (add()) ou de suppression (remove()) d'employés
 
     //Afficher tous les employés de l'entreprise
     @Override
@@ -50,7 +48,11 @@ public class Entreprise extends HashSet<Employe> implements Serializable {
 
     //Sauvegarde de l'instance dans le fichier
     public void sauver(String filePath)
-            throws FileNotFoundException, IOException {
+            throws FileNotFoundException, IOException, EmployeException {
+        //EXCEPTION : le fichier filePath doit etre un .dat
+        if (!filePath.endsWith(".dat"))
+            throw new EmployeException("Le fichier doit être un fichier binaire de format monFichier.dat, modifiez : " + filePath);
+        
         // Un flux binaire en écriture vers le fichier passé en paramètre
         FileOutputStream fos = new FileOutputStream(filePath);
         // Un flux de traitement des objets construit sur le flux binaire
@@ -85,37 +87,5 @@ public class Entreprise extends HashSet<Employe> implements Serializable {
         ois.close();
         return obj;
     }
-
-//    //Sauvegarder l'instance 
-//    public void sauverTexte(String filePath) throws IOException {
-//        FileWriter fw = new FileWriter(filePath, true);
-//        fw.write(System.lineSeparator());
-//        // Pour chaque attribut de mon instance je l'écris dans le fichier
-//        for (Employe e : this) {
-//            if (e.getClass().getSimpleName().equals("Responsable")) {
-//                Responsable r = (Responsable) e;
-//                fw.write(e.toString());
-//                for (Employe t : r.getLesSubordonnes()) {
-//                    fw.write(t.toString());
-//                }
-//            } else {
-//                fw.write(e.toString());
-//            }
-//        }
-//        // On insère un retour à la ligne
-//        fw.write(System.lineSeparator());
-//        fw.close();
-//    }
-//
-//    //Lire et retourner l'objet Entreprise 
-//    public Entreprise lireTexte(String filePath) throws IOException {
-//        Scanner sc = new Scanner(Paths.get(filePath));
-//        String ligne = sc.next();
-//        StringTokenizer token = new StringTokenizer(ligne);
-//        HashSet<Employe> lesEmployes = new HashSet<>();
-//        while (token.hasMoreElements()) {
-//            lesEmployes.add(Employe.lireTexte(token.nextToken()));
-//        }
-//        return new Entreprise();
-//    }
+    
 }

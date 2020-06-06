@@ -17,7 +17,7 @@ public class Responsable extends Employe {
     private final HashSet<Employe> lesSubordonnes;
 
     //CONSTRUCTEUR 
-    public Responsable(String n, String p, int mat, int indice) {
+    public Responsable(String n, String p, int mat, int indice) throws EmployeException {
         super(n, p, mat, indice);
         this.lesSubordonnes = new HashSet<>();
     }
@@ -86,10 +86,5 @@ public class Responsable extends Employe {
     public HashSet<Employe> getLesSubordonnes() {
         return lesSubordonnes;
     }
-
-//    //Texte à sauvegarder (string)
-//    public String getTexteASauver() {
-//        return super.getTexteASauver() + this.getLesSubordonnes() ;
-//    }
     
 }

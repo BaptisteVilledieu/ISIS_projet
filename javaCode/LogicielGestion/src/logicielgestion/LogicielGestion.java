@@ -18,13 +18,13 @@ public class LogicielGestion {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, EmployeException {
 
         //Sauvegarde 
-        String binaryFilePath = "SAUVEGARDES/Test2.dat";
+        String binaryFilePath = "SAUVEGARDES/Test1.dat";
 
         //Création de tous les employés de l'entreprise 
-        Responsable r1 = new Responsable("Biffi", "Emma", 1, 750);
+        Responsable r1 = new Responsable("Biffi", "Emmma", 1, 750);
         Responsable r2 = new Responsable("Lacoste", "Thomas", 2, 750);
         Responsable r3 = new Responsable("Palo", "Lucile", 11, 730);
         Responsable r4 = new Responsable("Vuire", "Melanie", 14, 700);
