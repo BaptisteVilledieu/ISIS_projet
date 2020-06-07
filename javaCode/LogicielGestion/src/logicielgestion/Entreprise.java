@@ -11,14 +11,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.HashSet;
 
 /**
  *
  * @author cecil
  */
-public class Entreprise extends HashSet<Employe> implements Serializable {
+public class Entreprise extends HashSet<Employe> {
     //Cette classe hérite d'une HashSet<Employe>, nous n'avons donc pas besoin de 
     //redéfinir les méthodes d'ajout (add()) ou de suppression (remove()) d'employés
 
@@ -59,16 +58,6 @@ public class Entreprise extends HashSet<Employe> implements Serializable {
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         // Ecriture de l'objet courant (this) dans le flux de traitement,
         // donc dans le fichier
-//        for (Employe e : this) {
-//            if (e.getClass().getSimpleName().equals("Responsable")) {
-//                Responsable r = (Responsable) e;
-//                oos.writeObject(e);
-//                for (Employe t : r.getLesSubordonnes()) {
-//                    oos.writeObject(t);
-//                }
-//            } else {
-//                oos.writeObject(e);
-//        }
         oos.writeObject(this);
         // Fermeture du flux (obligatoire)
         oos.close();

@@ -5,18 +5,14 @@
  */
 package logicielgestion;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.Scanner;
-import java.util.StringTokenizer;
 
 /**
  *
  * @author cecil
  */
-public abstract class Employe implements Payable, Serializable {
+public abstract class Employe implements Payable {
     //La classe est abstraite pour forcer l'utilisateur à instancier la classe EmployeDeBase
     //et non la classe Employe (qui correspond exactement à un EmployeDeBase)
 
@@ -64,18 +60,21 @@ public abstract class Employe implements Payable, Serializable {
     }
 
     //GENERATION DE HASH CODE ET EQUALS
-    @Override
+   @Override
     public int hashCode() {
         int hash = 5;
-        hash = 23 * hash + Objects.hashCode(this.nom);
-        hash = 23 * hash + Objects.hashCode(this.prenom);
         hash = 23 * hash + this.matricule;
-        hash = 23 * hash + this.indiceSalarial;
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
         final Employe other = (Employe) obj;
         if (this.matricule != other.matricule) {
             return false;

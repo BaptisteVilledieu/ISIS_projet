@@ -24,7 +24,7 @@ public class LogicielGestion {
         String binaryFilePath = "SAUVEGARDES/Test1.dat";
 
         //Création de tous les employés de l'entreprise 
-        Responsable r1 = new Responsable("Biffi", "Emmma", 1, 750);
+        Responsable r1 = new Responsable("Biffi", "Emmma", 2, 750);
         Responsable r2 = new Responsable("Lacoste", "Thomas", 2, 750);
         Responsable r3 = new Responsable("Palo", "Lucile", 11, 730);
         Responsable r4 = new Responsable("Vuire", "Melanie", 14, 700);
@@ -39,6 +39,10 @@ public class LogicielGestion {
         EmployeDeBase e7 = new EmployeDeBase("Turet", "Laura", 12, 420);
         EmployeDeBase e8 = new EmployeDeBase("Salmo", "Hugo", 13, 420);
         EmployeDeBase e9 = new EmployeDeBase("Zert", "Florian", 15, 420);
+        
+        if (r1.equals(r2)){
+            System.out.println("True");
+        }
 
         //Création de l'entreprise 
         Entreprise entreprise = new Entreprise();
@@ -104,7 +108,7 @@ public class LogicielGestion {
         //r4.afficherHierarchie();
         
         //Afficher hiérarchie complète de l'entreprise
-        entreprise.afficherHierarchieComplete();
+        //entreprise.afficherHierarchieComplete();
         
         //Afficher le salaire d'une branche de la hiérarchie 
         //Il faut mettre (0) pour initialiser la méthode avec un salaire = 0
