@@ -21,7 +21,7 @@ public class LogicielGestion {
     public static void main(String[] args) throws IOException, EmployeException {
 
         //Sauvegarde 
-        String binaryFilePath = "SAUVEGARDES/Test1.dat";
+        String binaryFilePath = "SAUVEGARDES/Test1.dat";;
 
         //Création de tous les employés de l'entreprise 
         Responsable r1 = new Responsable("Biffi", "Emmma", 2, 750);
@@ -125,7 +125,7 @@ public class LogicielGestion {
         //Afficher le salaire de toute l'entreprise
         //entreprise.afficherSalaireEntreprise();
         
-        //Sauvegarde en binaire 
+        //Sauvegarde en binaire des employés
         try {
             entreprise.sauver(binaryFilePath);
             System.out.println("Entreprise sauvegardée en binaire dans le fichier " + binaryFilePath);
@@ -133,13 +133,14 @@ public class LogicielGestion {
             Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        //Lecture en binaire 
+        //Lecture en binaire des employés 
         try {
             Entreprise lue = Entreprise.lire(binaryFilePath);
             System.out.println("Entreprise lue en binaire = " + "\n" + lue);
         } catch (IOException | ClassNotFoundException ex){
             Logger.getLogger(LogicielGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
 }

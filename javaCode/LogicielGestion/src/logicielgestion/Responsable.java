@@ -88,5 +88,5 @@ public class Responsable extends Employe {
     public HashSet<Employe> getLesSubordonnes() {
         return lesSubordonnes;
     }
-
+    
 }
