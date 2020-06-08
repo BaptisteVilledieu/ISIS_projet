@@ -39,14 +39,11 @@ public class LogicielGestion {
         EmployeDeBase e7 = new EmployeDeBase("Turet", "Laura", 12, 420);
         EmployeDeBase e8 = new EmployeDeBase("Salmo", "Hugo", 13, 420);
         EmployeDeBase e9 = new EmployeDeBase("Zert", "Florian", 15, 420);
-        
-        if (r1.equals(r2)){
-            System.out.println("True");
-        }
 
         //Création de l'entreprise 
         Entreprise entreprise = new Entreprise();
         
+        //Ajout des employés dans l'entreprise 
         entreprise.add(r1);
         entreprise.add(r2);
         entreprise.add(r3);
@@ -62,6 +59,9 @@ public class LogicielGestion {
         entreprise.add(e7);
         entreprise.add(e8);
         entreprise.add(e9);
+        
+        //Suppression d'employés dans l'entreprise 
+        //entreprise.remove(e9);
 
         //Afficher tous les employés de l'entreprise 
         System.out.println("Entreprise à sauvegarder : " + "\n" + entreprise);
@@ -98,6 +98,9 @@ public class LogicielGestion {
         r1.ajouterSubordonne(r4);
         r4.ajouterSubordonne(e9);
         r4.ajouterSubordonne(r3);
+        
+        //Supprimer des subordonnés aux responsables 
+        //r1.supprimerSubordonne(e9);
 
         //Afficher hiérarchie directement inférieure d'un responsable 
         //r1.afficherHierarchieDirecte();

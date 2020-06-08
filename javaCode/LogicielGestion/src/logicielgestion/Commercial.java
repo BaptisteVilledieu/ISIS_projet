@@ -10,10 +10,11 @@ package logicielgestion;
  * @author cecil
  */
 public class Commercial extends Employe {
-    //volume mensuel
+    
+    //Nouvel attribut : volume mensuel
     private double volume;
     
-    //CONSTRUCTEUR 
+    //Constructeur  
     public Commercial(String n, String p, int mat,int indice, double v) throws EmployeException {
         super(n, p, mat,indice);
         this.volume=v;

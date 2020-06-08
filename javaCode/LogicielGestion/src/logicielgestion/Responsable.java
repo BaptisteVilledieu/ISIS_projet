@@ -16,7 +16,7 @@ public class Responsable extends Employe {
     //Nouvel attribut
     private final HashSet<Employe> lesSubordonnes;
 
-    //CONSTRUCTEUR 
+    //Constructeur 
     public Responsable(String n, String p, int mat, int indice) throws EmployeException {
         super(n, p, mat, indice);
         this.lesSubordonnes = new HashSet<>();
@@ -58,7 +58,7 @@ public class Responsable extends Employe {
         }
     }
 
-    //Afficher le salaire d'une branche de la hiérarchie (donc de la hiérarchie inférieure directe d'un responsable)
+    //Afficher le salaire total d'une branche de la hiérarchie (donc de la hiérarchie inférieure directe d'un responsable)
     //(Le salaire du responsable de la hiérarchie est compris dedans) 
     public double afficherSalaireHierarchieDirecte(double sal) {
         double salaire = sal + this.calculSalaire();
@@ -69,6 +69,8 @@ public class Responsable extends Employe {
         return salaire;
     }
 
+    //Afficher le salaire total d'une branche de la hiérarchie inférieure 
+    //(Le salaire du responsable de la hiérarchie est compris dedans)
     public double afficherSalaireHierarchie(double sal) {
         double salaire = sal + this.calculSalaire();
         for (Employe e : this.lesSubordonnes) {

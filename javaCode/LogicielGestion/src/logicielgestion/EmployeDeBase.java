@@ -6,12 +6,12 @@ package logicielgestion;
  */
 public class EmployeDeBase extends Employe {
 
-    //CONSTRUCTEUR 
+    //Constructeur
     public EmployeDeBase(String n, String p, int mat, int indice) throws EmployeException {
         super(n, p, mat, indice);
     }
 
-    //Afficher l'employe
+    //Afficher l'employé de base
     @Override
     public String toString() {
         return super.toString() + "\n";

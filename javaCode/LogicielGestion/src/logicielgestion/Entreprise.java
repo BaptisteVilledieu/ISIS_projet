@@ -11,13 +11,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashSet;
 
 /**
  *
  * @author cecil
  */
-public class Entreprise extends HashSet<Employe> {
+public class Entreprise extends HashSet<Employe> implements Serializable {
     //Cette classe hérite d'une HashSet<Employe>, nous n'avons donc pas besoin de 
     //redéfinir les méthodes d'ajout (add()) ou de suppression (remove()) d'employés
 

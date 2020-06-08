@@ -12,24 +12,24 @@ import java.util.Objects;
  *
  * @author cecil
  */
-public abstract class Employe implements Payable {
+public abstract class Employe implements Payable, Serializable {
     //La classe est abstraite pour forcer l'utilisateur à instancier la classe EmployeDeBase
     //et non la classe Employe (qui correspond exactement à un EmployeDeBase)
 
-    //ATTRIBUTS
+    //Attributs
     private String nom;
     private String prenom;
     private int matricule;
     protected final int indiceSalarial;
 
-    //CONSTRUCTEUR 
+    //Constructeur 
     public Employe(String n, String p, int mat, int indice) throws EmployeException {
         this.nom = n;
         this.prenom = p;
         this.matricule = mat;
         this.indiceSalarial = indice;
         
-        //EXCEPTION 
+        //EXCEPTIONS
         if (n.substring(0, 1).equals(n.substring(0, 1).toLowerCase())) 
             throw new EmployeException ("Le nom d'un employé doit commencé par une majuscule, modfiez : " + n);
         
@@ -46,20 +46,20 @@ public abstract class Employe implements Payable {
              throw new EmployeException("Le nom de l'employé doit contenir au moins 3 lettres, modifiez : " + n);
     }
 
-    //affichage de l'employé  
+    //Affichage de l'employé  
     @Override
     public String toString() {
         return this.getClass().getSimpleName() + ": " + nom + ", " + prenom + ", matricule : " + matricule + ", indice salarial : " + indiceSalarial;
         //Ajouter le salaire
     }
     
-    //Methode de calcul du salaire 
+    //Méthode de calcul du salaire 
     @Override
     public double calculSalaire() {
         return this.indiceSalarial * 12;
     }
 
-    //GENERATION DE HASH CODE ET EQUALS
+    //Génération de hashCode() et equals()
    @Override
     public int hashCode() {
         int hash = 5;
@@ -82,7 +82,7 @@ public abstract class Employe implements Payable {
         return true;
     }
 
-    //GETTERS 
+    //Getters 
     public String getNom() {
         return nom;
     }
@@ -99,7 +99,7 @@ public abstract class Employe implements Payable {
         return indiceSalarial;
     }
 
-    //SETTERS
+    //Setters 
     public void setNom(String nom) {
         this.nom = nom;
     }
